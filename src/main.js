@@ -14,18 +14,23 @@ const fastCartesian = function(...iterables) {
 }
 
 const validateIterable = function(iterable) {
-  if (iterable[Symbol.iterator] === undefined) {
+  if (
+    iterable === undefined ||
+    iterable === null ||
+    iterable[Symbol.iterator] === undefined
+  ) {
     throw new TypeError(`Argument must be iterable: ${iterable}`)
   }
 }
 
-// We use imperative code as it faster than functional code, avoiding creating
-// extra arrays. We try re-use and mutate arrays as much as possible.
+// We use imperative code as it faster than functional code because it does not
+// create extra arrays. We try re-use and mutate arrays as much as possible.
 // We need to make sure callers parameters are not mutated though.
 /* eslint-disable max-params, fp/no-loops, fp/no-mutating-methods */
 const iterate = function(iterables, result, values, index) {
   const iterable = iterables[index]
 
+  // TODO: use iterables.length instead
   if (iterable === undefined) {
     result.push(values.slice())
     return
