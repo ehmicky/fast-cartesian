@@ -28,15 +28,12 @@ const validateIterable = function(iterable) {
 // We need to make sure callers parameters are not mutated though.
 /* eslint-disable max-params, fp/no-loops, fp/no-mutating-methods */
 const iterate = function(iterables, result, values, index) {
-  const iterable = iterables[index]
-
-  // TODO: use iterables.length instead
-  if (iterable === undefined) {
+  if (index === iterables.length) {
     result.push(values.slice())
     return
   }
 
-  for (const value of iterable) {
+  for (const value of iterables[index]) {
     values.push(value)
     iterate(iterables, result, values, index + 1)
     values.pop()
