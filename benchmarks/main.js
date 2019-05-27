@@ -8,9 +8,6 @@ const getArray = function(length) {
   return new Array({ length }, getIndex)
 }
 
-const DATA = [
-  [getArray(5)],
-  [getArray(10), getArray(10)],
-]
+const DATA = [[getArray(5)], [getArray(10), getArray(10)]]
 
 console.log(testCartesian(DATA[1]))
