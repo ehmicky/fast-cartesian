@@ -1,13 +1,13 @@
 import testCartesian from '../src/main.js'
 
-const getIndex = function(value, index) {
-  return index
-}
+import { printResults } from './print.js'
+import { getArray } from './array.js'
 
-const getArray = function(length) {
-  return new Array({ length }, getIndex)
-}
-
-const DATA = [[getArray(5)], [getArray(10), getArray(10)]]
-
-console.log(testCartesian(DATA[1]))
+printResults(
+  [
+    { variant: 'simple', args: [getArray(5)] },
+    { variant: 'complex', args: [getArray(100), getArray(100)] },
+  ],
+  [{ name: 'test-cartesian', func: testCartesian }],
+  { count: 1e4 },
+)
