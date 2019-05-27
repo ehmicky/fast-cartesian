@@ -2,11 +2,11 @@
 // Works with any iterable, including arrays, strings, generators, maps, sets.
 // eslint-disable-next-line import/unambiguous
 const fastCartesian = function(...iterables) {
-  iterables.forEach(validateIterable)
-
   if (iterables.length === 0) {
     return []
   }
+
+  iterables.forEach(validateIterable)
 
   const result = []
   iterate(iterables, result, [], 0)
