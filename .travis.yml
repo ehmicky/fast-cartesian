@@ -1,0 +1,39 @@
+language: node_js
+node_js: '12'
+dist: xenial
+# When pushing a tagged commit, Travis adds two builds: one with the tag, one
+# without. We only want to build the one with the tag, because it's the one
+# that runs the deployment stage
+if: '!(commit_message =~ /^Release/ && tag is blank)'
+jobs:
+  include:
+    # Test on Windows/Mac/Linux using latest Node.js.
+    # Also test on Linux with older Node.js versions.
+    # We do not run each possible combination to make CI faster.
+    - os: windows
+    - os: osx
+    - node_js: '8.12.0'
+    - node_js: '12'
+    # Test coverage check must happen after tests for the whole matrix have
+    # been performed, so we get the merged coverage map
+    - stage: Coverage check
+      # If this fails during a PR, CI will fail. However when CI fails, codecov
+      # does not post any comment. Since codecov comments are nicer than
+      # Travis Buddy comments for this, we skip it during PRs. Also this makes
+      # PRs checks faster.
+      if: type != pull_request
+      script: gulp coverage
+    # Deployment must happen after tests for the whole matrix have been
+    # performed, so we use `jobs.include` with a different `stage`.
+    - stage: Deploy
+      if: type != pull_request && tag is not blank
+      script: gulp publish
+      # NPM_TOKEN environment variable
+      env:
+        secure: 'iSeZ0Zvc4GjBnv7TjHIwK6F7HADW4czR1E/AaGMiHclkioBBe7k+bTCg+Dxyjy4q0uxIhdppxr0QuFHN+TYmSPAtVxjXh6FD4Q3WA9+bTSUrai05rod6gnrdnW7l+3CafxwPDHGufgF7ptDz+eGA2we8V/EiP1ytnA6dvGrWPNJTLDVu87mYWgXv+oVC1aFZCrco/UFBlthrz86M2bw0s+FCkRsbmD24UfGQ4vShDInD9Z2s6XtD6hwMDQWkS1bPk1+sgVVhNhWtFx5RHv9yFQ5dPTZWlIE79jq3jh2yUoTbH+TGJ+fi4w+uN/dmcU9zhUVcpPRjxa/VUC8YmCitwoACiD3l0IafG45mFiuD/tLH6iIWfs0hnntKUO5kSjSA/VuKAvDkfTNxzY+ReZNgRJj2FJNJT6nLLwB6lMERH81JSp1uV5hosFx+iHtlKAD4KxUlreKb568JUbhZUTU0goik+vUcbqz6js1OebYtn2CgZ+D51i6H3ZgTqUltaqsXF5IXrLYd/vFAJGH7CdyBO3kfncarkJCjRm0xNhEhKL3/4YD2TURewT1zXeWccDMHXLAOhoyUs+EZslev/xjx09mDB7Iornon8XPi+VFEueqYPoPWc8d4Dk4N3dxaOQFJw1djiMLnGR0mrZlIPtjgDHsyQdSdx9TDhaY7yfrq13s='
+notifications:
+  webhooks:
+    - https://www.travisbuddy.com?only=failed,errored&insertMode=update
+  email: false
+# We do not use `cache: npm` because downloading and uploading the cache
+# actually takes more time than it saves during `npm ci`.
