@@ -17,13 +17,23 @@ const getArgs = function(size) {
 const getArg = function(index, size) {
   const dimensions = 2 ** index
   const unitLength = 2 ** (2 ** (size - index - 1))
+  const title = `${dimensions} dimensions`
   const unit = getArray(unitLength)
   const argsA = getArray(dimensions).map(() => unit)
-  return argsA
+  return [{ title, args: argsA }]
 }
 
-const args = getArgs(5)
+const allArgs = getArgs(5)
 
-printResults([{ name: 'test-cartesian', func: testCartesian, args }], {
-  count: 1e2,
-})
+printResults(
+  [
+    {
+      name: 'test-cartesian',
+      func: ({ args }) => testCartesian(...args),
+      args: allArgs,
+    },
+  ],
+  {
+    count: 1e2,
+  },
+)

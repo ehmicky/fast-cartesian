@@ -1,10 +1,31 @@
 import prettyFormat, { plugins } from 'pretty-format'
 
-export const getTitle = function(value) {
+import { isPlainObject } from './utils.js'
+
+// Retrieve unique test titles for each loop.
+// Users can customize titles by using the iterated function parameters.
+export const getTitles = function(values) {
+  return values.map(getTitle).join(' ')
+}
+
+const getTitle = function(value) {
+  if (hasTitle(value)) {
+    return value.title
+  }
+
   const title = serialize(value)
 
   const titleA = truncateTitle(title)
   return titleA
+}
+
+// `{ title }` can be used to override the serialization logic
+const hasTitle = function(param) {
+  return (
+    isPlainObject(param) &&
+    typeof param.title === 'string' &&
+    param.title.trim() !== ''
+  )
 }
 
 // We use `pretty-format` because it:
@@ -42,7 +63,7 @@ const truncateTitle = function(title) {
   return `${start}${ELLIPSIS}${end}`
 }
 
-const MAX_TITLE_SIZE = 120
+const MAX_TITLE_SIZE = 40
 const ELLIPSIS = '...'
 const TRUNCATE_START_LENGTH = Math.ceil((MAX_TITLE_SIZE - ELLIPSIS.length) / 2)
 const TRUNCATE_END_LENGTH = Math.floor((MAX_TITLE_SIZE - ELLIPSIS.length) / 2)

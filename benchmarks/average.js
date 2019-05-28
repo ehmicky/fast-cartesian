@@ -1,5 +1,5 @@
-// Calculate the mean of an array of integers
-export const mean = function(array) {
+// Calculate the average of an array of integers
+export const average = function(array) {
   return sum(array) / array.length
 }
 

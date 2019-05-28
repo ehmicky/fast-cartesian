@@ -1,7 +1,7 @@
 import { getArray } from './array.js'
-import { getTitle } from './format.js'
+import { getTitles } from './format.js'
 import { measure } from './measure.js'
-import { mean } from './mean.js'
+import { average } from './average.js'
 
 export const getResults = function(funcs, { count }) {
   const countA = getArray(count)
@@ -15,11 +15,11 @@ const getResult = function({ name, func, allArgs, count }) {
 }
 
 const getArgResult = function({ name, func, args, count }) {
-  const argsTitle = args.map(getTitle).join(' ')
+  const argsTitle = getTitles(args)
   const title = `${name} with ${argsTitle}`
 
   const funcA = func.bind(null, ...args)
   const durations = count.map(() => measure(funcA))
-  const duration = mean(durations)
-  return { title, name, duration, durations, count }
+  const duration = average(durations)
+  return { title, duration, durations, count }
 }

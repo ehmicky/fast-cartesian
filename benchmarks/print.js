@@ -5,11 +5,9 @@ export const printResults = function(funcs, { count }) {
   results.forEach(printResult)
 }
 
-const printResult = function({ variant, name, duration }) {
+const printResult = function({ title, duration }) {
   // eslint-disable-next-line no-console, no-restricted-globals
-  console.log(
-    `${variant} ${name}: ${Math.round(duration * MICROSECS_TO_NANOSECS)}ns`,
-  )
+  console.log(`${title}: ${Math.round(duration * MICROSECS_TO_NANOSECS)}ns`)
 }
 
 const MICROSECS_TO_NANOSECS = 1e3
