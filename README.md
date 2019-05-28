@@ -44,6 +44,13 @@ const generator = function*() {
 console.log(fastCartesian(['01', '04'], generator(), ['1980', '2019']))
 ```
 
+# Demo
+
+You can try this library:
+
+- either directly [in your browser](https://repl.it/@ehmicky/fast-cartesian).
+- or by executing the [`examples` files](examples/README.md) in a terminal.
+
 # Install
 
 ```
