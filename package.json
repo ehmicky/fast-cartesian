@@ -34,9 +34,13 @@
   },
   "devDependencies": {
     "ava": "^1.4.1",
+    "cartesian": "^1.0.1",
+    "cartesian-product": "^2.1.2",
     "gulp": "^4.0.2",
     "gulp-shared-tasks": "^0.28.2",
-    "husky": "^2.3.0"
+    "husky": "^2.3.0",
+    "lodash": "^4.17.11",
+    "lodash.product": "^18.9.19"
   },
   "engines": {
     "node": ">=8.12.0"
