@@ -19,12 +19,12 @@ const getResult = function({ title, main, variants, loop }) {
   )
 }
 
-const getArgResult = function({ title, main, args = [], variantTitle, loop }) {
+const getArgResult = function({ title, main, args, variantTitle, loop }) {
   const titleA =
     variantTitle === undefined ? title : `${title} (${variantTitle})`
 
-  const mainA = main.bind(null, ...args)
+  const mainA = args === undefined ? main : main.bind(null, ...args)
   const durations = loop.map(() => measure(mainA))
   const duration = average(durations)
-  return { title: titleA, duration, durations, count: loop.length }
+  return { title: titleA, args, duration, durations, count: loop.length }
 }
