@@ -1,6 +1,6 @@
 import { getArray } from './array.js'
 import { measure } from './measure.js'
-import { average } from './average.js'
+import { getStats } from './stats.js'
 
 export const getResults = function(tasks, { repeat }) {
   const loop = getArray(repeat)
@@ -25,6 +25,6 @@ const getArgResult = function({ title, main, args, variantTitle, loop }) {
 
   const mainA = args === undefined ? main : main.bind(null, ...args)
   const durations = loop.map(() => measure(mainA))
-  const duration = average(durations)
-  return { title: titleA, args, duration, durations, count: loop.length }
+  const duration = getStats(durations)
+  return { title: titleA, args, duration, count: loop.length }
 }
