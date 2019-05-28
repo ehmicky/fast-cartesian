@@ -41,7 +41,8 @@
     "gulp-shared-tasks": "^0.28.4",
     "husky": "^2.3.0",
     "lodash": "^4.17.11",
-    "lodash.product": "^18.9.19"
+    "lodash.product": "^18.9.19",
+    "pretty-format": "^24.8.0"
   },
   "engines": {
     "node": ">=8.12.0"
