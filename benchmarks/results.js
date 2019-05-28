@@ -1,22 +1,26 @@
 import { getArray } from './array.js'
-import { getTitles } from './format.js'
 import { measure } from './measure.js'
 import { average } from './average.js'
 
 export const getResults = function(funcs, { count }) {
   const countA = getArray(count)
-  return funcs.flatMap(({ name, func, args: allArgs = [[]] }) =>
-    getResult({ name, func, allArgs, count: countA }),
+  return funcs.flatMap(({ name, func, variants }) =>
+    getResult({ name, func, variants, count: countA }),
   )
 }
 
-const getResult = function({ name, func, allArgs, count }) {
-  return allArgs.map(args => getArgResult({ name, func, args, count }))
+const getResult = function({ name, func, variants, count }) {
+  if (variants === undefined) {
+    return getArgResult({ name, func, count })
+  }
+
+  return Object.entries(variants).map(([variantTitle, args]) =>
+    getArgResult({ name, func, args, variantTitle, count }),
+  )
 }
 
-const getArgResult = function({ name, func, args, count }) {
-  const argsTitle = getTitles(args)
-  const title = `${name} with ${argsTitle}`
+const getArgResult = function({ name, func, args = [], variantTitle, count }) {
+  const title = variantTitle === undefined ? name : `${name} (${variantTitle})`
 
   const funcA = func.bind(null, ...args)
   const durations = count.map(() => measure(funcA))

@@ -1,4 +1,4 @@
-import testCartesian from '../src/main.js'
+import fastCartesian from '../src/main.js'
 
 import { printResults } from './print.js'
 import { getArray } from './array.js'
@@ -10,30 +10,25 @@ import { getArray } from './array.js'
 ///  [[0, 1, 2, 3]] (1 dimension)
 //   [[0, 1], [0, 1]] (2 dimensions)
 //   [[0], [0], [0], [0]] (4 dimensions)
-const getArgs = function(size) {
-  return getArray(size).map((value, index) => getArg(index, size))
+const getVariants = function(size) {
+  const variantsA = getArray(size).map((value, index) =>
+    getVariant(index, size),
+  )
+  return Object.fromEntries(variantsA)
 }
 
-const getArg = function(index, size) {
+const getVariant = function(index, size) {
   const dimensions = 2 ** index
   const unitLength = 2 ** (2 ** (size - index - 1))
   const title = `${dimensions} dimensions`
   const unit = getArray(unitLength)
-  const argsA = getArray(dimensions).map(() => unit)
-  return [{ title, args: argsA }]
+  const args = getArray(dimensions).map(() => unit)
+  return [title, args]
 }
 
-const allArgs = getArgs(5)
+const variants = getVariants(5)
 
 printResults(
-  [
-    {
-      name: 'test-cartesian',
-      func: ({ args }) => testCartesian(...args),
-      args: allArgs,
-    },
-  ],
-  {
-    count: 1e2,
-  },
+  [{ name: 'test-cartesian', func: fastCartesian, variants }],
+  { count: 1e2 },
 )
