@@ -9,6 +9,40 @@ Fast cartesian product.
 
 Work in progress!
 
+# Benchmarks
+
+Those [benchmarks](benchmarks/main.js) compares the performance of this library
+against alternatives
+([`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),
+[`cartesian`](https://github.com/alexindigo/cartesian) and
+[`lodash.product`](https://github.com/SeregPie/lodash.product)).
+
+```
+fast-cartesian    (1 array)   278869 ops/sec
+fast-cartesian    (2 arrays)  304239 ops/sec
+fast-cartesian    (4 arrays)  213092 ops/sec
+fast-cartesian    (8 arrays)  379142 ops/sec
+fast-cartesian    (16 arrays) 159605 ops/sec
+
+cartesian-product (1 array)   245936 ops/sec
+cartesian-product (2 arrays)  232967 ops/sec
+cartesian-product (4 arrays)   72620 ops/sec
+cartesian-product (8 arrays)   55621 ops/sec
+cartesian-product (16 arrays)  37949 ops/sec
+
+cartesian         (1 array)   127550 ops/sec
+cartesian         (2 arrays)   51323 ops/sec
+cartesian         (4 arrays)   43785 ops/sec
+cartesian         (8 arrays)   33748 ops/sec
+cartesian         (16 arrays)  22163 ops/sec
+
+lodash.product    (1 array)    19958 ops/sec
+lodash.product    (2 arrays)   18865 ops/sec
+lodash.product    (4 arrays)   17608 ops/sec
+lodash.product    (8 arrays)   14205 ops/sec
+lodash.product    (16 arrays)   9667 ops/sec
+```
+
 # Support
 
 If you found a bug or would like a new feature, _don't hesitate_ to

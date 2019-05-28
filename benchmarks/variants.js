@@ -17,7 +17,8 @@ const getVariant = function(index, length) {
   const unitLength = 2 ** (2 ** (length - index - 1))
   const unit = Array.from({ length: unitLength }, getIndex)
   const args = Array.from({ length: dimensions }, () => unit)
-  const title = `${dimensions} dimensions`
+  const title =
+    dimensions === 1 ? `${dimensions} array` : `${dimensions} arrays`
   return [title, args]
 }
 
