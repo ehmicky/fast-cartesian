@@ -5,7 +5,7 @@
 ///  [[0, 1, 2, 3]] (1 dimension)
 //   [[0, 1], [0, 1]] (2 dimensions)
 //   [[0], [0], [0], [0]] (4 dimensions)
-export const getVariants = function(length) {
+const getVariants = function(length) {
   const variantsA = Array.from({ length }, (value, index) =>
     getVariant(index, length),
   )
