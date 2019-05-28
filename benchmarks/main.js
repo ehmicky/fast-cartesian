@@ -1,3 +1,4 @@
+import checkSpeed from 'check-speed'
 import cartesianProduct from 'cartesian-product'
 import cartesian from 'cartesian'
 import lodash from 'lodash'
@@ -6,7 +7,6 @@ import 'lodash.product'
 
 import fastCartesian from '../src/main.js'
 
-import { benchmark } from './benchmark.js'
 import { variants } from './variants.js'
 
 const testFastCartesian = {
@@ -33,7 +33,7 @@ const testLodashProduct = {
   variants,
 }
 
-benchmark(
+checkSpeed(
   { testFastCartesian, testCartesianProduct, testCartesian, testLodashProduct },
   { repeat: 1e2 },
 )
