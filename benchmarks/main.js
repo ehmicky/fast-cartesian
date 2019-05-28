@@ -3,11 +3,28 @@ import testCartesian from '../src/main.js'
 import { printResults } from './print.js'
 import { getArray } from './array.js'
 
+// Retrieve several arguments for cartesian products:
+//  - the return value length is always `size`
+//  - the number of dimensions and size of each array differ
+// For example `size: 3` returns:
+///  [[0, 1, 2, 3]] (1 dimension)
+//   [[0, 1], [0, 1]] (2 dimensions)
+//   [[0], [0], [0], [0]] (4 dimensions)
+const getArgs = function(size) {
+  return getArray(size).map((value, index) => getArg(index, size))
+}
+
+const getArg = function(index, size) {
+  const dimensions = 2 ** index
+  const unitLength = 2 ** 2 ** (size - index - 1)
+  const variant = `${dimensions} dimensions`
+  const unit = getArray(unitLength)
+  const args = getArray(dimensions).map(() => unit)
+  return { variant, args }
+}
+
 printResults(
-  [
-    { variant: 'simple', args: [getArray(5)] },
-    { variant: 'complex', args: [getArray(100), getArray(100)] },
-  ],
+  getArgs(5),
   [{ name: 'test-cartesian', func: testCartesian }],
-  { count: 1e4 },
+  { count: 1e2 },
 )
