@@ -2,9 +2,9 @@ import { getArray } from './array.js'
 import { measure } from './measure.js'
 import { average } from './average.js'
 
-export const getResults = function(funcs, { count }) {
+export const getResults = function(tasks, { count }) {
   const countA = getArray(count)
-  return funcs.flatMap(({ name, func, variants }) =>
+  return Object.entries(tasks).flatMap(([name, { func, variants }]) =>
     getResult({ name, func, variants, count: countA }),
   )
 }

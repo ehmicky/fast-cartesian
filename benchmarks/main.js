@@ -29,6 +29,6 @@ const getVariant = function(index, size) {
 const variants = getVariants(5)
 
 printResults(
-  [{ name: 'test-cartesian', func: fastCartesian, variants }],
+  { 'test-cartesian': { func: fastCartesian, variants } },
   { count: 1e2 },
 )
