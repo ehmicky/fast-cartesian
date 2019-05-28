@@ -67,8 +67,7 @@ const combinations = fastCartesian(...inputs)
 [`iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterables)
 (one or several)<br> _Return value_: `array[]`
 
-Returns a two-dimensional `array` where each row contains a combination of
-`inputs`.
+Returns a two-dimensional `array` where each row is a combination of `inputs`.
 
 # Benchmarks
 
