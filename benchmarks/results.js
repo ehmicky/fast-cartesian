@@ -5,7 +5,9 @@ import { mean } from './mean.js'
 
 export const getResults = function(funcs, { count }) {
   const countA = getArray(count)
-  return funcs.flatMap(({ name, func, args: allArgs = [[]] }) => getResult({ name, func, allArgs, count: countA }))
+  return funcs.flatMap(({ name, func, args: allArgs = [[]] }) =>
+    getResult({ name, func, allArgs, count: countA }),
+  )
 }
 
 const getResult = function({ name, func, allArgs, count }) {
