@@ -1,7 +1,7 @@
 // Retrieve several arguments for cartesian products:
 //  - the return value length is always the same
 //  - the number of dimensions and size of each array differ
-// For example `size: 3` returns:
+// For example `length: 3` returns:
 ///  [[0, 1, 2, 3]] (1 dimension)
 //   [[0, 1], [0, 1]] (2 dimensions)
 //   [[0], [0], [0], [0]] (4 dimensions)
