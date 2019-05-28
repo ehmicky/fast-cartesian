@@ -2,29 +2,29 @@ import { getArray } from './array.js'
 import { measure } from './measure.js'
 import { average } from './average.js'
 
-export const getResults = function(tasks, { count }) {
-  const countA = getArray(count)
+export const getResults = function(tasks, { repeat }) {
+  const loop = getArray(repeat)
   return Object.entries(tasks).flatMap(([id, { title = id, main, variants }]) =>
-    getResult({ title, main, variants, count: countA }),
+    getResult({ title, main, variants, loop }),
   )
 }
 
-const getResult = function({ title, main, variants, count }) {
+const getResult = function({ title, main, variants, loop }) {
   if (variants === undefined) {
-    return getArgResult({ title, main, count })
+    return getArgResult({ title, main, loop })
   }
 
   return Object.entries(variants).map(([variantTitle, args]) =>
-    getArgResult({ title, main, args, variantTitle, count }),
+    getArgResult({ title, main, args, variantTitle, loop }),
   )
 }
 
-const getArgResult = function({ title, main, args = [], variantTitle, count }) {
+const getArgResult = function({ title, main, args = [], variantTitle, loop }) {
   const titleA =
     variantTitle === undefined ? title : `${title} (${variantTitle})`
 
   const mainA = main.bind(null, ...args)
-  const durations = count.map(() => measure(mainA))
+  const durations = loop.map(() => measure(mainA))
   const duration = average(durations)
-  return { title: titleA, duration, durations, count }
+  return { title: titleA, duration, durations, count: loop.length }
 }

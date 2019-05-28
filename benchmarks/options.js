@@ -3,5 +3,5 @@ export const getOptions = function(opts) {
 }
 
 const DEFAULT_OPTS = {
-  count: 1e3,
+  repeat: 1e3,
 }

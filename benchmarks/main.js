@@ -30,5 +30,5 @@ const variants = getVariants(5)
 
 benchmark(
   { testCartesian: { title: 'test-cartesian', main: fastCartesian, variants } },
-  { count: 1e2 },
+  { repeat: 1e2 },
 )
