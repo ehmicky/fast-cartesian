@@ -55,7 +55,8 @@ npm install fast-cartesian
 ```js
 const fastCartesian = require('fast-cartesian')
 
-const combinations = fastCartesian(...iterables)
+const inputs = [['01', '04'], ['Jan', 'Feb'], ['1980', '2019']]
+const combinations = fastCartesian(...inputs)
 ```
 
 # API
@@ -71,8 +72,8 @@ Returns a two-dimensional `array` where each row contains a combination of
 
 # Benchmarks
 
-Those [benchmarks](benchmarks/main.js) compares the performance of this library
-against alternatives
+The following [benchmarks](benchmarks/main.js) compare the performance of this
+library against alternatives
 ([`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),
 [`cartesian`](https://github.com/alexindigo/cartesian) and
 [`lodash.product`](https://github.com/SeregPie/lodash.product)).
