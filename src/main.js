@@ -8,8 +8,10 @@ const fastCartesian = function(...iterables) {
 
   iterables.forEach(validateIterable)
 
+  const arrays = iterables.map(arrify)
+
   const result = []
-  iterate(iterables, result, [], 0)
+  iterate(arrays, result, [], 0)
   return result
 }
 
@@ -23,19 +25,28 @@ const validateIterable = function(iterable) {
   }
 }
 
+// Some iterables are stateful, e.g. generators. We need to iterate them first.
+const arrify = function(iterable) {
+  if (Array.isArray(iterable)) {
+    return iterable
+  }
+
+  return [...iterable]
+}
+
 // We use imperative code as it faster than functional code because it does not
 // create extra arrays. We try re-use and mutate arrays as much as possible.
 // We need to make sure callers parameters are not mutated though.
 /* eslint-disable max-params, fp/no-loops, fp/no-mutating-methods */
-const iterate = function(iterables, result, values, index) {
-  if (index === iterables.length) {
+const iterate = function(arrays, result, values, index) {
+  if (index === arrays.length) {
     result.push(values.slice())
     return
   }
 
-  for (const value of iterables[index]) {
+  for (const value of arrays[index]) {
     values.push(value)
-    iterate(iterables, result, values, index + 1)
+    iterate(arrays, result, values, index + 1)
     values.pop()
   }
 }

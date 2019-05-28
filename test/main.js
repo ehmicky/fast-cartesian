@@ -32,6 +32,7 @@ const generator = function*() {
   [new Map([[{}, 0], [{}, 1]])],
   [new Set([0, 1])],
   [generator()],
+  [[0, 1], generator()],
 ].forEach(args => {
   const title = prettyFormat(args, { min: true })
   test(title, t => {
