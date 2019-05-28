@@ -1,7 +1,7 @@
 import { getResults } from './results.js'
 
-export const printResults = function(variants, funcs, { count }) {
-  const results = getResults(variants, funcs, { count })
+export const printResults = function(funcs, { count }) {
+  const results = getResults(funcs, { count })
   results.forEach(printResult)
 }
 
