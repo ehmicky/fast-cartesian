@@ -4,9 +4,8 @@ import { average } from './average.js'
 
 export const getResults = function(tasks, { count }) {
   const countA = getArray(count)
-  return Object.entries(tasks).flatMap(
-    ([name, { title = name, main, variants }]) =>
-      getResult({ title, main, variants, count: countA }),
+  return Object.entries(tasks).flatMap(([id, { title = id, main, variants }]) =>
+    getResult({ title, main, variants, count: countA }),
   )
 }
 
