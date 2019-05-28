@@ -29,6 +29,6 @@ const getVariant = function(index, size) {
 const variants = getVariants(5)
 
 benchmark(
-  { 'test-cartesian': { func: fastCartesian, variants } },
+  { 'test-cartesian': { main: fastCartesian, variants } },
   { count: 1e2 },
 )
