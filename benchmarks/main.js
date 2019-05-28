@@ -1,6 +1,6 @@
 import fastCartesian from '../src/main.js'
 
-import { printResults } from './print.js'
+import { benchmark } from './benchmark.js'
 import { getArray } from './array.js'
 
 // Retrieve several arguments for cartesian products:
@@ -28,7 +28,7 @@ const getVariant = function(index, size) {
 
 const variants = getVariants(5)
 
-printResults(
+benchmark(
   { 'test-cartesian': { func: fastCartesian, variants } },
   { count: 1e2 },
 )

@@ -1,6 +1,6 @@
 import { getResults } from './results.js'
 
-export const printResults = function(tasks, { count }) {
+export const benchmark = function(tasks, { count }) {
   const results = getResults(tasks, { count })
   results.forEach(printResult)
 }
