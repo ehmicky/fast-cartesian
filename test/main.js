@@ -3,10 +3,6 @@ import prettyFormat from 'pretty-format'
 
 import fastCartesian from '../src/main.js'
 
-import { stringifyErrors } from './helpers/error.js'
-
-const eFastCartesian = stringifyErrors(fastCartesian)
-
 const generator = function*() {
   yield 0
   yield 1
@@ -36,6 +32,10 @@ const generator = function*() {
 ].forEach(args => {
   const title = prettyFormat(args, { min: true })
   test(title, t => {
-    t.snapshot(eFastCartesian(...args))
+    try {
+      t.snapshot(fastCartesian(...args))
+    } catch (error) {
+      t.snapshot(error)
+    }
   })
 })
