@@ -59,7 +59,7 @@
     "cartesian-product": "^2.1.2",
     "check-speed": "^0.0.3",
     "gulp": "^4.0.2",
-    "gulp-shared-tasks": "^0.29.18",
+    "gulp-shared-tasks": "^0.29.19",
     "husky": "^2.4.1",
     "lodash": "^4.17.11",
     "lodash.product": "^18.9.19",
