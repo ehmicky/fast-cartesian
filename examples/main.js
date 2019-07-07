@@ -12,15 +12,10 @@ require('./utils.js')
 
 const fastCartesian = require('fast-cartesian')
 
-// Prints:
+console.log(fastCartesian(['red', 'blue'], ['circle', 'square']))
 // [
-//   [ '01', 'Jan', '1980' ],
-//   [ '01', 'Jan', '2019' ],
-//   [ '01', 'Feb', '1980' ],
-//   [ '01', 'Feb', '2019' ],
-//   [ '04', 'Jan', '1980' ],
-//   [ '04', 'Jan', '2019' ],
-//   [ '04', 'Feb', '1980' ],
-//   [ '04', 'Feb', '2019' ],
+//   [ 'red', 'circle' ],
+//   [ 'red', 'square' ],
+//   [ 'blue', 'circle' ],
+//   [ 'blue', 'square' ]
 // ]
-console.log(fastCartesian(['01', '04'], ['Jan', 'Feb'], ['1980', '2019']))

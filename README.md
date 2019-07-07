@@ -17,16 +17,26 @@ Retrieves every possible combination between several arrays
 ```js
 const fastCartesian = require('fast-cartesian')
 
-console.log(fastCartesian(['01', '04'], ['Jan', 'Feb'], ['1980', '2019']))
+console.log(fastCartesian(['red', 'blue'], ['circle', 'square']))
 // [
-//   [ '01', 'Jan', '1980' ],
-//   [ '01', 'Jan', '2019' ],
-//   [ '01', 'Feb', '1980' ],
-//   [ '01', 'Feb', '2019' ],
-//   [ '04', 'Jan', '1980' ],
-//   [ '04', 'Jan', '2019' ],
-//   [ '04', 'Feb', '1980' ],
-//   [ '04', 'Feb', '2019' ],
+//   [ 'red', 'circle' ],
+//   [ 'red', 'square' ],
+//   [ 'blue', 'circle' ],
+//   [ 'blue', 'square' ]
+// ]
+
+// Returning initial indexes
+console.log(
+  fastCartesian(
+    Object.entries(['red', 'blue']),
+    Object.entries(['circle', 'square']),
+  ),
+)
+// [
+//   [ [ '0', 'red' ], [ '0', 'circle' ] ],
+//   [ [ '0', 'red' ], [ '1', 'square' ] ],
+//   [ [ '1', 'blue' ], [ '0', 'circle' ] ],
+//   [ [ '1', 'blue' ], [ '1', 'square' ] ]
 // ]
 ```
 
@@ -48,7 +58,7 @@ npm install fast-cartesian
 ```js
 const fastCartesian = require('fast-cartesian')
 
-const inputs = [['01', '04'], ['Jan', 'Feb'], ['1980', '2019']]
+const inputs = [['red', 'blue'], ['circle', 'square']]
 const combinations = fastCartesian(...inputs)
 ```
 
