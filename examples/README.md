@@ -11,4 +11,3 @@ They can also be run directly
 ## Examples
 
 - [Main usage](main.js)
-- [Iterables](iterable.js)

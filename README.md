@@ -11,11 +11,6 @@ Retrieves every possible combination between several arrays
 ([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)):
 
 - [fastest](#benchmarks) available library in JavaScript
-- works with any
-  [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterables):
-  arrays,
-  [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator),
-  strings, maps, sets, etc.
 
 # Example
 
@@ -34,14 +29,6 @@ const fastCartesian = require('fast-cartesian')
 //   [ '04', 'Feb', '2019' ],
 // ]
 console.log(fastCartesian(['01', '04'], ['Jan', 'Feb'], ['1980', '2019']))
-
-// Works with any iterable: arrays, generators, strings, maps, sets, etc.
-const generator = function*() {
-  yield 'Jan'
-  yield 'Feb'
-}
-
-console.log(fastCartesian(['01', '04'], generator(), ['1980', '2019']))
 ```
 
 # Demo
@@ -70,9 +57,7 @@ const combinations = fastCartesian(...inputs)
 
 ## fastCartesian(...inputs)
 
-`inputs`:
-[`iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterables)
-(one or several)<br> _Return value_: `array[]`
+`inputs`: `Array` (one or several)<br> _Return value_: `array[]`
 
 Returns a two-dimensional `array` where each row is a combination of `inputs`.
 
