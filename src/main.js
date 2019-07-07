@@ -1,37 +1,21 @@
-// Does a cartesian product on several iterables.
-// Works with any iterable, including arrays, strings, generators, maps, sets.
+// Does a cartesian product on several arrays.
 // eslint-disable-next-line import/unambiguous
-const fastCartesian = function(...iterables) {
-  if (iterables.length === 0) {
+const fastCartesian = function(...arrays) {
+  if (arrays.length === 0) {
     return []
   }
 
-  iterables.forEach(validateIterable)
-
-  const arrays = iterables.map(arrify)
+  arrays.forEach(validateArray)
 
   const result = []
   iterate(arrays, result, [], 0)
   return result
 }
 
-const validateIterable = function(iterable) {
-  if (
-    iterable === undefined ||
-    iterable === null ||
-    iterable[Symbol.iterator] === undefined
-  ) {
-    throw new TypeError(`Argument must be iterable: ${iterable}`)
+const validateArray = function(array) {
+  if (!Array.isArray(array)) {
+    throw new TypeError(`Argument must be an array: ${array}`)
   }
-}
-
-// Some iterables are stateful, e.g. generators. We need to iterate them first.
-const arrify = function(iterable) {
-  if (Array.isArray(iterable)) {
-    return iterable
-  }
-
-  return [...iterable]
 }
 
 // We use imperative code as it faster than functional code because it does not

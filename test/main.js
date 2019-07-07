@@ -3,12 +3,7 @@ import prettyFormat from 'pretty-format'
 
 import fastCartesian from '../src/main.js'
 
-const generator = function*() {
-  yield 0
-  yield 1
-}
-
-;[
+const ARGS = [
   [],
   [[]],
   [[], []],
@@ -24,12 +19,9 @@ const generator = function*() {
   [[0, 1, 2], [3, 4]],
   [[[0]]],
   [[0, undefined, 1]],
-  ['abc'],
-  [new Map([[{}, 0], [{}, 1]])],
-  [new Set([0, 1])],
-  [generator()],
-  [[0, 1], generator()],
-].forEach(args => {
+]
+
+ARGS.forEach(args => {
   const title = prettyFormat(args, { min: true })
   test(title, t => {
     try {
