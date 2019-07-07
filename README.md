@@ -70,11 +70,11 @@ library against alternatives
 [`lodash.product`](https://github.com/SeregPie/lodash.product)).
 
 ```
-fast-cartesian    (1 array)   278869 ops/sec
-fast-cartesian    (2 arrays)  304239 ops/sec
-fast-cartesian    (4 arrays)  213092 ops/sec
-fast-cartesian    (8 arrays)  379142 ops/sec
-fast-cartesian    (16 arrays) 159605 ops/sec
+fast-cartesian    (1 array)   454480 ops/sec
+fast-cartesian    (2 arrays)  278303 ops/sec
+fast-cartesian    (4 arrays)  204996 ops/sec
+fast-cartesian    (8 arrays)  373567 ops/sec
+fast-cartesian    (16 arrays) 134004 ops/sec
 
 cartesian-product (1 array)   245936 ops/sec
 cartesian-product (2 arrays)  232967 ops/sec
