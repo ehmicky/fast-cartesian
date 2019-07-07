@@ -17,7 +17,7 @@ Retrieves every possible combination between several arrays
 ```js
 const fastCartesian = require('fast-cartesian')
 
-// Prints:
+console.log(fastCartesian(['01', '04'], ['Jan', 'Feb'], ['1980', '2019']))
 // [
 //   [ '01', 'Jan', '1980' ],
 //   [ '01', 'Jan', '2019' ],
@@ -28,7 +28,6 @@ const fastCartesian = require('fast-cartesian')
 //   [ '04', 'Feb', '1980' ],
 //   [ '04', 'Feb', '2019' ],
 // ]
-console.log(fastCartesian(['01', '04'], ['Jan', 'Feb'], ['1980', '2019']))
 ```
 
 # Demo
