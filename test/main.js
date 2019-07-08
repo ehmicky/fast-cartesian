@@ -3,9 +3,17 @@ import prettyFormat from 'pretty-format'
 
 import { cartesianArray, cartesianIterate } from '../src/main.js'
 
-const METHODS = [cartesianArray, cartesianIterate]
+const METHODS = [
+  { name: 'array', cartesian: cartesianArray },
+  {
+    name: 'iterate',
+    cartesian(...args) {
+      return [...cartesianIterate(...args)]
+    },
+  },
+]
 
-METHODS.forEach(cartesian => {
+METHODS.forEach(({ name, cartesian }) => {
   const ARGS = [
     [],
     [[]],
@@ -22,8 +30,8 @@ METHODS.forEach(cartesian => {
   ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
-    test(`${cartesian.name} ${title}`, t => {
-      t.snapshot([...cartesian(...args)])
+    test(`${name} ${title}`, t => {
+      t.snapshot(cartesian(...args))
     })
   })
 
@@ -31,9 +39,8 @@ METHODS.forEach(cartesian => {
   INVALID_ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
-    test(`${cartesian.name} ${title}`, t => {
-      // eslint-disable-next-line max-nested-callbacks
-      t.throws(() => [...cartesian(...args)])
+    test(`${name} ${title}`, t => {
+      t.throws(cartesian.bind(null, ...args))
     })
   })
 })
