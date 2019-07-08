@@ -12,7 +12,6 @@ const METHODS = [
     },
   },
 ]
-
 METHODS.forEach(({ name, cartesian }) => {
   const ARGS = [
     [],
