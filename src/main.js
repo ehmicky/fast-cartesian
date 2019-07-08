@@ -13,7 +13,7 @@ export const cartesianArray = function(...arrays) {
 }
 
 // We use imperative code as it faster than functional code because it does not
-// create extra arrays. We try re-use and mutate arrays as much as possible.
+// create extra arrays. We try re-using and mutating arrays as much as possible.
 // We need to make sure callers parameters are not mutated though.
 /* eslint-disable max-params, max-depth, fp/no-loops, fp/no-mutating-methods */
 const recurse = function(arrays, result, values, index) {
@@ -32,7 +32,7 @@ const recurse = function(arrays, result, values, index) {
 /* eslint-enable max-params, max-depth, fp/no-loops, fp/no-mutating-methods */
 
 // Does a cartesian product on several arrays.
-// Returns an iterator.
+// Returns an iterable.
 // Slower but requires much less memory.
 export const cartesianIterate = function*(...arrays) {
   if (arrays.length === 0) {

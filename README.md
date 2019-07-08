@@ -28,7 +28,7 @@ console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
 //   [ 'blue', 'square' ]
 // ]
 
-// Returning initial indexes
+// Return initial indexes
 console.log(
   cartesianArray(
     Object.entries(['red', 'blue']),
@@ -42,7 +42,7 @@ console.log(
 //   [ [ '1', 'blue' ], [ '1', 'square' ] ]
 // ]
 
-// Iterate over combinations
+// Iterate over each combination
 for (const values of cartesianIterate(['red', 'blue'], ['circle', 'square'])) {
   console.log(values)
 }
