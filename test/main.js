@@ -29,7 +29,7 @@ METHODS.forEach(({ name, cartesian }) => {
   ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
-    test(`${name} ${title}`, t => {
+    test(`${name} | ${title}`, t => {
       t.snapshot(cartesian(...args))
     })
   })
@@ -38,7 +38,7 @@ METHODS.forEach(({ name, cartesian }) => {
   INVALID_ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
-    test(`${name} ${title}`, t => {
+    test(`${name} | should throw: ${title}`, t => {
       t.throws(cartesian.bind(null, ...args))
     })
   })
