@@ -15,6 +15,8 @@ Retrieves every possible combination between several arrays
 
 # Example
 
+<!-- eslint-disable fp/no-loops -->
+
 ```js
 const { cartesianArray, cartesianIterate } = require('fast-cartesian')
 
@@ -64,6 +66,8 @@ npm install fast-cartesian
 ```
 
 # Usage
+
+<!-- eslint-disable fp/no-loops, no-empty -->
 
 ```js
 const { cartesianArray, cartesianIterate } = require('fast-cartesian')
