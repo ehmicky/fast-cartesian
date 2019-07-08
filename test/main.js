@@ -1,7 +1,7 @@
 import test from 'ava'
 import prettyFormat from 'pretty-format'
 
-import fastCartesian from '../src/main.js'
+import { cartesianArray } from '../src/main.js'
 
 const ARGS = [
   [],
@@ -25,7 +25,7 @@ ARGS.forEach(args => {
   const title = prettyFormat(args, { min: true })
   test(title, t => {
     try {
-      t.snapshot(fastCartesian(...args))
+      t.snapshot(cartesianArray(...args))
     } catch (error) {
       t.snapshot(error)
     }

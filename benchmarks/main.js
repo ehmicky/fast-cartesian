@@ -5,13 +5,13 @@ import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
 
-import fastCartesian from '../src/main.js'
+import { cartesianArray } from '../src/main.js'
 
 import { variants } from './variants.js'
 
 const testFastCartesian = {
   title: 'fast-cartesian',
-  main: (...args) => fastCartesian(...args),
+  main: (...args) => cartesianArray(...args),
   variants,
 }
 

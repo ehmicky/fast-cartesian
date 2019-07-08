@@ -1,6 +1,5 @@
 // Does a cartesian product on several arrays.
-// eslint-disable-next-line import/unambiguous
-const fastCartesian = function(...arrays) {
+export const cartesianArray = function(...arrays) {
   if (arrays.length === 0) {
     return []
   }
@@ -35,7 +34,3 @@ const iterate = function(arrays, result, values, index) {
   }
 }
 /* eslint-enable max-params, fp/no-loops, fp/no-mutating-methods */
-
-// We do not use `export default` because Babel transpiles it in a way that
-// requires CommonJS users to `require(...).default` instead of `require(...)`.
-module.exports = fastCartesian

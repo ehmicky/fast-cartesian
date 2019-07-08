@@ -15,9 +15,9 @@ Retrieves every possible combination between several arrays
 # Example
 
 ```js
-const fastCartesian = require('fast-cartesian')
+const { cartesianArray } = require('fast-cartesian')
 
-console.log(fastCartesian(['red', 'blue'], ['circle', 'square']))
+console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -27,7 +27,7 @@ console.log(fastCartesian(['red', 'blue'], ['circle', 'square']))
 
 // Returning initial indexes
 console.log(
-  fastCartesian(
+  cartesianArray(
     Object.entries(['red', 'blue']),
     Object.entries(['circle', 'square']),
   ),
@@ -56,15 +56,15 @@ npm install fast-cartesian
 # Usage
 
 ```js
-const fastCartesian = require('fast-cartesian')
+const { cartesianArray } = require('fast-cartesian')
 
 const inputs = [['red', 'blue'], ['circle', 'square']]
-const combinations = fastCartesian(...inputs)
+const combinations = cartesianArray(...inputs)
 ```
 
 # API
 
-## fastCartesian(...inputs)
+## cartesianArray(...inputs)
 
 `inputs`: `Array` (one or several)<br> _Return value_: `array[]`
 
