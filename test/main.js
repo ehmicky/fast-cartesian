@@ -1,7 +1,7 @@
 import test from 'ava'
 import prettyFormat from 'pretty-format'
 
-import { cartesianArray } from '../src/main.js'
+import { cartesianArray, cartesianIterate } from '../src/main.js'
 
 const ARGS = [
   [],
@@ -21,13 +21,18 @@ const ARGS = [
   [[0, undefined, 1]],
 ]
 
-ARGS.forEach(args => {
-  const title = prettyFormat(args, { min: true })
-  test(title, t => {
-    try {
-      t.snapshot(cartesianArray(...args))
-    } catch (error) {
-      t.snapshot(error)
-    }
+const METHODS = [cartesianArray, cartesianIterate]
+
+METHODS.forEach(cartesian => {
+  ARGS.forEach(args => {
+    const title = prettyFormat(args, { min: true })
+    // eslint-disable-next-line max-nested-callbacks
+    test(`${cartesian.name} ${title}`, t => {
+      try {
+        t.snapshot([...cartesian(...args)])
+      } catch (error) {
+        t.snapshot(error)
+      }
+    })
   })
 })
