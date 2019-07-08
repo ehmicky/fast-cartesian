@@ -11,11 +11,12 @@ Retrieves every possible combination between several arrays
 ([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)):
 
 - [fastest](#benchmarks) available library in JavaScript
+- can handle trillions of combinations
 
 # Example
 
 ```js
-const { cartesianArray } = require('fast-cartesian')
+const { cartesianArray, cartesianIterate } = require('fast-cartesian')
 
 console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
 // [
@@ -38,6 +39,15 @@ console.log(
 //   [ [ '1', 'blue' ], [ '0', 'circle' ] ],
 //   [ [ '1', 'blue' ], [ '1', 'square' ] ]
 // ]
+
+// Iterate over combinations
+for (const values of cartesianIterate(['red', 'blue'], ['circle', 'square'])) {
+  console.log(values)
+}
+// [ 'red', 'circle' ]
+// [ 'red', 'square' ]
+// [ 'blue', 'circle' ]
+// [ 'blue', 'square' ]
 ```
 
 # Demo
@@ -56,10 +66,14 @@ npm install fast-cartesian
 # Usage
 
 ```js
-const { cartesianArray } = require('fast-cartesian')
+const { cartesianArray, cartesianIterate } = require('fast-cartesian')
 
 const inputs = [['red', 'blue'], ['circle', 'square']]
+
 const combinations = cartesianArray(...inputs)
+
+for (const combination of cartesianIterate(...inputs)) {
+}
 ```
 
 # API
@@ -69,6 +83,16 @@ const combinations = cartesianArray(...inputs)
 `inputs`: `Array` (one or several)<br> _Return value_: `array[]`
 
 Returns a two-dimensional `array` where each row is a combination of `inputs`.
+
+## cartesianIterate(...inputs)
+
+`inputs`: `Array` (one or several)<br> _Return value_:
+[`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+
+Iterates over each combination of `inputs`.
+
+Slower than [`cartesianArray()`](#cartesianarrayinputs) but requires much less
+memory, which enables handling trillions of combinations.
 
 # Benchmarks
 

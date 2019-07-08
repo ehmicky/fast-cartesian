@@ -11,3 +11,4 @@ They can also be run directly
 ## Examples
 
 - [Main usage](main.js)
+- [`cartesianIterate()`](iterate.js)
