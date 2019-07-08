@@ -1,5 +1,6 @@
 import test from 'ava'
 import prettyFormat from 'pretty-format'
+import isCi from 'is-ci'
 
 import { cartesianArray, cartesianIterate } from '../src/main.js'
 
@@ -44,12 +45,15 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
-test('iterate | should not crash when combinations are huge', t => {
-  const inputs = Array.from({ length: 25 }, () => [0, 1])
+// This test is very slow, so it is run only in CI
+if (isCi) {
+  test('iterate | should not crash when combinations are huge', t => {
+    const inputs = Array.from({ length: 25 }, () => [0, 1])
 
-  // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
-  for (const [] of cartesianIterate(...inputs)) {
-  }
+    // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
+    for (const [] of cartesianIterate(...inputs)) {
+    }
 
-  t.pass()
-})
+    t.pass()
+  })
+}
