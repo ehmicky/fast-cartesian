@@ -43,3 +43,13 @@ METHODS.forEach(({ name, cartesian }) => {
     })
   })
 })
+
+test('iterate | should not crash when combinations are huge', t => {
+  const inputs = Array.from({ length: 25 }, () => [0, 1])
+
+  // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
+  for (const [] of cartesianIterate(...inputs)) {
+  }
+
+  t.pass()
+})
