@@ -11,7 +11,7 @@ Retrieves every possible combination between several arrays
 ([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)):
 
 - [fastest](#benchmarks) available library in JavaScript
-- can handle trillions of combinations
+- can handle trillions of combinations without crashing your machine
 
 # Example
 
