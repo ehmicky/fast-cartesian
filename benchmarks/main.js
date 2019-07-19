@@ -4,6 +4,7 @@ import cartesian from 'cartesian'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
+import FastCartesianProduct from 'fast-cartesian-product'
 
 import { cartesianArray } from '../src/main.js'
 
@@ -21,6 +22,12 @@ const testCartesianProduct = {
   variants,
 }
 
+const testFastCartesianProduct = {
+  title: 'fast-cartesian-product',
+  main: (...args) => [...new FastCartesianProduct(args)],
+  variants,
+}
+
 const testCartesian = {
   title: 'cartesian',
   main: (...args) => cartesian(args),
@@ -34,6 +41,12 @@ const testLodashProduct = {
 }
 
 checkSpeed(
-  { testFastCartesian, testCartesianProduct, testCartesian, testLodashProduct },
+  {
+    testFastCartesian,
+    testCartesianProduct,
+    testFastCartesianProduct,
+    testCartesian,
+    testLodashProduct,
+  },
   { repeat: 1e2 },
 )

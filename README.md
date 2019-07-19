@@ -103,33 +103,45 @@ memory, which enables handling trillions of combinations.
 The following [benchmarks](benchmarks/main.js) compare the performance of this
 library against alternatives
 ([`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),
+[`fast-cartesian-product`](https://github.com/fisker/fast-cartesian-product),
 [`cartesian`](https://github.com/alexindigo/cartesian) and
 [`lodash.product`](https://github.com/SeregPie/lodash.product)).
 
 ```
-fast-cartesian    (1 array)   454480 ops/sec
-fast-cartesian    (2 arrays)  278303 ops/sec
-fast-cartesian    (4 arrays)  204996 ops/sec
-fast-cartesian    (8 arrays)  373567 ops/sec
-fast-cartesian    (16 arrays) 134004 ops/sec
+## fast-cartesian ######################
+1 array                   563052 ops/sec
+2 arrays                  424135 ops/sec
+4 arrays                  293415 ops/sec
+8 arrays                  500239 ops/sec
+16 arrays                 191760 ops/sec
 
-cartesian-product (1 array)   245936 ops/sec
-cartesian-product (2 arrays)  232967 ops/sec
-cartesian-product (4 arrays)   72620 ops/sec
-cartesian-product (8 arrays)   55621 ops/sec
-cartesian-product (16 arrays)  37949 ops/sec
+## cartesian-product ###################
+1 array                   173439 ops/sec
+2 arrays                  315102 ops/sec
+4 arrays                   87052 ops/sec
+8 arrays                   68653 ops/sec
+16 arrays                  47208 ops/sec
 
-cartesian         (1 array)   127550 ops/sec
-cartesian         (2 arrays)   51323 ops/sec
-cartesian         (4 arrays)   43785 ops/sec
-cartesian         (8 arrays)   33748 ops/sec
-cartesian         (16 arrays)  22163 ops/sec
+## fast-cartesian-product ##############
+1 array                   181136 ops/sec
+2 arrays                   92572 ops/sec
+4 arrays                   66268 ops/sec
+8 arrays                   50934 ops/sec
+16 arrays                  33727 ops/sec
 
-lodash.product    (1 array)    19958 ops/sec
-lodash.product    (2 arrays)   18865 ops/sec
-lodash.product    (4 arrays)   17608 ops/sec
-lodash.product    (8 arrays)   14205 ops/sec
-lodash.product    (16 arrays)   9667 ops/sec
+## cartesian ###########################
+1 array                   150806 ops/sec
+2 arrays                   61050 ops/sec
+4 arrays                   55646 ops/sec
+8 arrays                   43507 ops/sec
+16 arrays                  29012 ops/sec
+
+## lodash.product ######################
+1 array                    24374 ops/sec
+2 arrays                   24107 ops/sec
+4 arrays                   22458 ops/sec
+8 arrays                   18063 ops/sec
+16 arrays                  11886 ops/sec
 ```
 
 # Support
