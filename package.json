@@ -60,7 +60,7 @@
     "check-speed": "^0.0.3",
     "fast-cartesian-product": "0.0.2",
     "gulp": "^4.0.2",
-    "gulp-shared-tasks": "^0.30.31",
+    "gulp-shared-tasks": "^0.30.32",
     "husky": "^3.0.2",
     "is-ci": "^2.0.0",
     "lodash": "^4.17.15",
