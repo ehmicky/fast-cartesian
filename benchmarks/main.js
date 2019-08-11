@@ -1,6 +1,5 @@
-import checkSpeed from 'check-speed'
-import cartesianProduct from 'cartesian-product'
-import cartesian from 'cartesian'
+import cartesianProductFunc from 'cartesian-product'
+import cartesianFunc from 'cartesian'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
@@ -8,45 +7,31 @@ import FastCartesianProduct from 'fast-cartesian-product'
 
 import { cartesianArray } from '../src/main.js'
 
-import { variants } from './variants.js'
+import { getVariations } from './variations.js'
 
-const testFastCartesian = {
+export const variations = getVariations(5)
+
+export const fastCartesian = {
   title: 'fast-cartesian',
-  main: (...args) => cartesianArray(...args),
-  variants,
+  main: args => cartesianArray(...args),
 }
 
-const testCartesianProduct = {
+export const cartesianProduct = {
   title: 'cartesian-product',
-  main: (...args) => cartesianProduct(args),
-  variants,
+  main: args => cartesianProductFunc(args),
 }
 
-const testFastCartesianProduct = {
+export const fastCartesianProduct = {
   title: 'fast-cartesian-product',
-  main: (...args) => [...new FastCartesianProduct(args)],
-  variants,
+  main: args => [...new FastCartesianProduct(args)],
 }
 
-const testCartesian = {
+export const cartesian = {
   title: 'cartesian',
-  main: (...args) => cartesian(args),
-  variants,
+  main: args => cartesianFunc(args),
 }
 
-const testLodashProduct = {
+export const lodashProduct = {
   title: 'lodash.product',
-  main: (...args) => lodash.product(...args),
-  variants,
+  main: args => lodash.product(...args),
 }
-
-checkSpeed(
-  {
-    testFastCartesian,
-    testCartesianProduct,
-    testFastCartesianProduct,
-    testCartesian,
-    testLodashProduct,
-  },
-  { repeat: 1e2 },
-)

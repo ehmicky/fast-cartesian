@@ -57,7 +57,6 @@
     "ava": "^2.2.0",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
-    "check-speed": "^0.0.3",
     "fast-cartesian-product": "0.0.2",
     "gulp": "^4.0.2",
     "gulp-shared-tasks": "^0.30.35",
@@ -65,7 +64,8 @@
     "is-ci": "^2.0.0",
     "lodash": "^4.17.15",
     "lodash.product": "^18.9.19",
-    "pretty-format": "^24.8.0"
+    "pretty-format": "^24.8.0",
+    "spyd": "^0.1.0"
   },
   "engines": {
     "node": ">=8.12.0"
