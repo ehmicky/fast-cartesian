@@ -108,40 +108,40 @@ library against alternatives
 [`lodash.product`](https://github.com/SeregPie/lodash.product)).
 
 ```
-## fast-cartesian ######################
-1 array                   563052 ops/sec
-2 arrays                  424135 ops/sec
-4 arrays                  293415 ops/sec
-8 arrays                  500239 ops/sec
-16 arrays                 191760 ops/sec
+## fast-cartesian ##########
+1 array               1.36ms
+2 arrays              1.41ms
+4 arrays              1.57ms
+8 arrays              1.69ms
+16 arrays             3.88ms
 
-## cartesian-product ###################
-1 array                   173439 ops/sec
-2 arrays                  315102 ops/sec
-4 arrays                   87052 ops/sec
-8 arrays                   68653 ops/sec
-16 arrays                  47208 ops/sec
+## cartesian-product #######
+1 array               2.57ms
+2 arrays              3.68ms
+4 arrays             10.79ms
+8 arrays             14.33ms
+16 arrays            20.79ms
 
-## fast-cartesian-product ##############
-1 array                   181136 ops/sec
-2 arrays                   92572 ops/sec
-4 arrays                   66268 ops/sec
-8 arrays                   50934 ops/sec
-16 arrays                  33727 ops/sec
+## fast-cartesian-product ##
+1 array               4.77ms
+2 arrays              5.21ms
+4 arrays              7.35ms
+8 arrays             11.35ms
+16 arrays            19.05ms
 
-## cartesian ###########################
-1 array                   150806 ops/sec
-2 arrays                   61050 ops/sec
-4 arrays                   55646 ops/sec
-8 arrays                   43507 ops/sec
-16 arrays                  29012 ops/sec
+## cartesian ###############
+1 array               6.39ms
+2 arrays             16.54ms
+4 arrays             17.69ms
+8 arrays             22.52ms
+16 arrays            34.37ms
 
-## lodash.product ######################
-1 array                    24374 ops/sec
-2 arrays                   24107 ops/sec
-4 arrays                   22458 ops/sec
-8 arrays                   18063 ops/sec
-16 arrays                  11886 ops/sec
+## lodash.product ##########
+1 array              38.81ms
+2 arrays             40.43ms
+4 arrays             43.31ms
+8 arrays             54.85ms
+16 arrays            82.06ms
 ```
 
 # Support
