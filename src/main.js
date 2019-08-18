@@ -1,5 +1,3 @@
-import moize from 'moize'
-
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 export const cartesianArray = function(...arrays) {
@@ -35,6 +33,21 @@ const validateArray = function(array) {
   }
 }
 
+const getLoopFunc = function(length, iterable) {
+  const cachedLoopFunc = cache[iterable][length]
+
+  if (cachedLoopFunc !== undefined) {
+    return cachedLoopFunc
+  }
+
+  const loopFunc = mGetLoopFunc(length, iterable)
+  // eslint-disable-next-line fp/no-mutation
+  cache[iterable][length] = loopFunc
+  return loopFunc
+}
+
+const cache = { false: {}, true: {} }
+
 // Create a function with `new Function()` that does:
 //   function(arrays, results) {
 //     for (const value0 of arrays[0]) {
@@ -66,8 +79,6 @@ const mGetLoopFunc = function(length, iterable) {
     `${start}\nresult.push([${middle}])\n${end}`,
   )
 }
-
-const getLoopFunc = moize(mGetLoopFunc)
 
 const getIndex = function(value, index) {
   return String(index)
