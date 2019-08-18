@@ -1,3 +1,5 @@
+import moize from 'moize'
+
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 export const cartesianArray = function(...arrays) {
@@ -7,33 +9,11 @@ export const cartesianArray = function(...arrays) {
 
   arrays.forEach(validateArray)
 
-  if (arrays.length === 1) {
-    return arrays[0].map(wrapArray)
-  }
-
+  const loopFunc = getLoopFunc(arrays.length, false)
   const result = []
-  recurse(arrays, result, [], 0)
+  loopFunc(arrays, result)
   return result
 }
-
-// We use imperative code as it faster than functional code because it does not
-// create extra arrays. We try re-using and mutating arrays as much as possible.
-// We need to make sure callers parameters are not mutated though.
-/* eslint-disable max-params, max-depth, fp/no-loops, fp/no-mutating-methods */
-const recurse = function(arrays, result, values, index) {
-  for (const value of arrays[index]) {
-    values.push(value)
-
-    if (index === arrays.length - 1) {
-      result.push(values.slice())
-    } else {
-      recurse(arrays, result, values, index + 1)
-    }
-
-    values.pop()
-  }
-}
-/* eslint-enable max-params, max-depth, fp/no-loops, fp/no-mutating-methods */
 
 // Does a cartesian product on several arrays.
 // Returns an iterable.
@@ -45,29 +25,9 @@ export const cartesianIterate = function*(...arrays) {
 
   arrays.forEach(validateArray)
 
-  if (arrays.length === 1) {
-    yield* arrays[0].map(wrapArray)
-    return
-  }
-
-  yield* iterate(arrays, [], 0)
+  const loopFunc = getLoopFunc(arrays.length, true)
+  yield* loopFunc(arrays)
 }
-
-/* eslint-disable max-depth, fp/no-loops, fp/no-mutating-methods */
-const iterate = function*(arrays, values, index) {
-  for (const value of arrays[index]) {
-    values.push(value)
-
-    if (index === arrays.length - 1) {
-      yield values.slice()
-    } else {
-      yield* iterate(arrays, values, index + 1)
-    }
-
-    values.pop()
-  }
-}
-/* eslint-enable max-depth, fp/no-loops, fp/no-mutating-methods */
 
 const validateArray = function(array) {
   if (!Array.isArray(array)) {
@@ -75,7 +35,47 @@ const validateArray = function(array) {
   }
 }
 
-// Performance shortcut when only one array is used
-const wrapArray = function(value) {
-  return [value]
+// Create a function with `new Function()` that does:
+//   function(arrays, results) {
+//     for (const value0 of arrays[0]) {
+//       for (const value1 of arrays[1]) {
+//         // and so on
+//         results.push([value0, value1])
+//       }
+//     }
+//   }
+// If `iterable`, use `yield` instead.
+const mGetLoopFunc = function(length, iterable) {
+  const indexes = Array.from({ length }, getIndex)
+  const repeatA = repeat.bind(null, indexes)
+
+  const start = repeatA(
+    index => `for (const value${index} of arrays[${index}]) {`,
+  )
+  const middle = repeatA(index => `value${index}`, ', ')
+  const end = repeatA(() => '}')
+
+  if (iterable) {
+    return new GeneratorFunction('arrays', `${start} yield [${middle}] ${end}`)
+  }
+
+  // eslint-disable-next-line no-new-func
+  return new Function(
+    'arrays',
+    'result',
+    `${start}\nresult.push([${middle}])\n${end}`,
+  )
 }
+
+const getLoopFunc = moize(mGetLoopFunc)
+
+const getIndex = function(value, index) {
+  return String(index)
+}
+
+const repeat = function(indexes, mapper, separator = '\n') {
+  return indexes.map(mapper).join(separator)
+}
+
+// Like `Function` but for generators
+const GeneratorFunction = cartesianIterate.constructor

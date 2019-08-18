@@ -51,7 +51,8 @@
     "test": "test"
   },
   "dependencies": {
-    "core-js": "^3.2.1"
+    "core-js": "^3.2.1",
+    "moize": "^5.4.4"
   },
   "devDependencies": {
     "ava": "^2.3.0",
