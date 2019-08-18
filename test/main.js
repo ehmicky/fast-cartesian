@@ -92,7 +92,11 @@ const getTrue = function() {
   return true
 }
 
-const HIGH_COMBINATIONS = [{ length: 100, size: 1 }, { length: 32, size: 2 }]
+const HIGH_COMBINATIONS = [
+  { length: 100, size: 1 },
+  { length: 32, size: 2 },
+  { length: 99, size: 1300 },
+]
 HIGH_COMBINATIONS.forEach(({ length, size }) => {
   test(`array | should throw on high number of combinations | ${length}x${size}`, t => {
     const args = getBigArray(length, size)
