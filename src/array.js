@@ -3,11 +3,6 @@ import { validateInput } from './validate.js'
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 // Optimized to be the fastest implementation in JavaScript.
-// The following limits apply (use `iterate()` if any matters to you):
-//  - all combinations are returned as a huge array, which can take lots of
-//    memory.
-//  - maximum 4e9 number of combinations (`returnValue.length`)
-//  - maximum few hundreds of dimensions (`arrays.length`)
 export const cartesianArray = function(...arrays) {
   if (arrays.length === 0) {
     return []
