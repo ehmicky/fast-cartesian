@@ -44,7 +44,28 @@ METHODS.forEach(({ name, cartesian }) => {
     })
   })
 
-  const INVALID_ARGS = [true, [undefined], [null], [[], true], [() => true]]
+  const INVALID_ARGS = [
+    true,
+    [undefined],
+    [null],
+    [[], true],
+    [() => true],
+    [
+      function getObject() {
+        return {}
+      },
+    ],
+    [
+      function getNull() {
+        return null
+      },
+    ],
+    [
+      function getInvalidIterator() {
+        return { next: true }
+      },
+    ],
+  ]
   INVALID_ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     test(`${name} | should throw: ${title}`, t => {
