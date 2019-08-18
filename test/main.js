@@ -27,6 +27,14 @@ const ARGS = [
   [[0, undefined, 1]],
 ]
 
+const getGenerators = function(args) {
+  return args.map(arg => {
+    return function* getArray() {
+      yield* arg
+    }
+  })
+}
+
 METHODS.forEach(({ name, cartesian }) => {
   ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
@@ -46,6 +54,16 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
+ARGS.forEach(args => {
+  const title = prettyFormat(args, { min: true })
+  test(`iterate | should work with generators | ${title}`, t => {
+    const generators = getGenerators(args)
+    const generatorsResult = [...iterate(generators)]
+    const arraysResult = [...iterate(args)]
+    t.deepEqual(generatorsResult, arraysResult)
+  })
+})
+
 const getBigArray = function(length, size) {
   return Array.from({ length }, () => Array.from({ length: size }, getTrue))
 }
@@ -56,7 +74,7 @@ const getTrue = function() {
 
 const HIGH_COMBINATIONS = [{ length: 100, size: 1 }, { length: 32, size: 2 }]
 HIGH_COMBINATIONS.forEach(({ length, size }) => {
-  test(`array ${length}x${size} | should throw on high number of combinations`, t => {
+  test(`array | should throw on high number of combinations | ${length}x${size}`, t => {
     const args = getBigArray(length, size)
     t.throws(array.bind(null, args))
   })
