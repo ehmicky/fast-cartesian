@@ -1,5 +1,10 @@
 # 3.0.0
 
+## Breaking changes
+
+- Rename `cartesianArray()` and `cartesianIterate()` to `array()` and
+  `iterate()`
+
 ## Features
 
 - `iterate()` can now handle an infinite number of combinations
