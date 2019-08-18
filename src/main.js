@@ -36,7 +36,7 @@ const recurse = function(arrays, result, values, index) {
 // Slower but requires much less memory.
 export const cartesianIterate = function*(...arrays) {
   if (arrays.length === 0) {
-    return []
+    return
   }
 
   arrays.forEach(validateArray)
