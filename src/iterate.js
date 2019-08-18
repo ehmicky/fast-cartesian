@@ -2,11 +2,10 @@
 // Returns an iterable.
 // Slower than `array()` but:
 //  - requires much less memory
-//  - can handle an infinite number of combinations
-//    (`inputs.length` * `inputs[index].length`)
+//  - can handle an infinite number of combinations (`returnValue.length`)
 //  - can handle infinitely large inputs (`inputs[index].length`)
-//  - can handle 4e9 dimensions (`inputs.length`). This is the maximum size of
-//    an array in JavaScript.
+//  - can handle 4e9 dimensions (`inputs.length`).
+//    This is the maximum size of an array in JavaScript.
 export const cartesianIterate = function*(...inputs) {
   if (inputs.length === 0) {
     return
