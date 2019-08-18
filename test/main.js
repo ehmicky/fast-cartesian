@@ -56,7 +56,9 @@ METHODS.forEach(({ name, cartesian }) => {
       t.snapshot(cartesian(args))
     })
   })
+})
 
+METHODS.forEach(({ name, cartesian }) => {
   INVALID_ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
