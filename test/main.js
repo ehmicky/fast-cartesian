@@ -92,27 +92,34 @@ const getTrue = function() {
   return true
 }
 
-const HIGH_COMBINATIONS = [
+const COMBINATIONS_ARRAY = [
   { length: 100, size: 1 },
   { length: 32, size: 2 },
   { length: 99, size: 1300 },
 ]
-HIGH_COMBINATIONS.forEach(({ length, size }) => {
+COMBINATIONS_ARRAY.forEach(({ length, size }) => {
   test(`array | should throw on high number of combinations | ${length}x${size}`, t => {
     const args = getBigArray(length, size)
     t.throws(array.bind(null, args))
   })
 })
 
-// This test is very slow, so it is run only in CI
-if (isCi) {
-  test('iterate | should not crash when combinations are huge', t => {
-    const args = Array.from({ length: 25 }, () => [0, 1])
+const COMBINATIONS_ITERATE = [
+  { length: 100, size: 1 },
+  // We should do 32x2, unfortunately that takes half an hour
+  { length: 25, size: 2 },
+]
+COMBINATIONS_ITERATE.forEach(({ length, size }) => {
+  // Those tests are very slow, so it is run only in CI
+  if (isCi) {
+    test(`iterate | should not throw on high number of combinations | ${length}x${size}`, t => {
+      const args = getBigArray(length, size)
 
-    // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
-    for (const [] of iterate(args)) {
-    }
+      // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
+      for (const [] of iterate(args)) {
+      }
 
-    t.pass()
-  })
-}
+      t.pass()
+    })
+  }
+})
