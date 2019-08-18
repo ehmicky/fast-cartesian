@@ -45,9 +45,15 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
-test('array | should throw on high number of combinations', t => {
-  const args = Array.from({ length: 100 }, () => [0])
-  t.throws(() => array(args))
+const getBigArray = function({ length, size }) {
+  return Array.from({ length }, () => Array.from({ length: size }, () => true))
+}
+
+const HIGH_COMBINATIONS = [{ length: 100, size: 1 }].map(getBigArray)
+HIGH_COMBINATIONS.forEach(args => {
+  test('array | should throw on high number of combinations', t => {
+    t.throws(array.bind(null, args))
+  })
 })
 
 // This test is very slow, so it is run only in CI
