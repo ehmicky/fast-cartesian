@@ -45,8 +45,12 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
+const getTrue = function() {
+  return true
+}
+
 const getBigArray = function({ length, size }) {
-  return Array.from({ length }, () => Array.from({ length: size }, () => true))
+  return Array.from({ length }, () => Array.from({ length: size }, getTrue))
 }
 
 const HIGH_COMBINATIONS = [{ length: 100, size: 1 }].map(getBigArray)
