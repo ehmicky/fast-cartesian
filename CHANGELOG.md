@@ -1,3 +1,9 @@
+# 2.0.2
+
+## Performance
+
+- Improve performance
+
 # 2.0.1
 
 ## Performance
