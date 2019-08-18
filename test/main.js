@@ -12,6 +12,7 @@ const METHODS = [
     },
   },
 ]
+
 const ARGS = [
   [],
   [[]],
@@ -25,6 +26,7 @@ const ARGS = [
   [[[0]]],
   [[0, undefined, 1]],
 ]
+
 const INVALID_ARGS = [
   true,
   [undefined],
