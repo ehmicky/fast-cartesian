@@ -20,7 +20,7 @@ Retrieves every possible combination between several arrays
 ```js
 const { array, iterate } = require('fast-cartesian')
 
-console.log(array(['red', 'blue'], ['circle', 'square']))
+console.log(array([['red', 'blue'], ['circle', 'square']]))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -30,7 +30,10 @@ console.log(array(['red', 'blue'], ['circle', 'square']))
 
 // Return initial indexes
 console.log(
-  array(Object.entries(['red', 'blue']), Object.entries(['circle', 'square'])),
+  array([
+    Object.entries(['red', 'blue']),
+    Object.entries(['circle', 'square']),
+  ]),
 )
 // [
 //   [ [ '0', 'red' ], [ '0', 'circle' ] ],
@@ -40,7 +43,7 @@ console.log(
 // ]
 
 // Iterate over each combination
-for (const values of iterate(['red', 'blue'], ['circle', 'square'])) {
+for (const values of iterate([['red', 'blue'], ['circle', 'square']])) {
   console.log(values)
 }
 // [ 'red', 'circle' ]
@@ -71,23 +74,23 @@ const { array, iterate } = require('fast-cartesian')
 
 const inputs = [['red', 'blue'], ['circle', 'square']]
 
-const combinations = array(...inputs)
+const combinations = array(inputs)
 
-for (const combination of iterate(...inputs)) {
+for (const combination of iterate(inputs)) {
 }
 ```
 
 # API
 
-## array(...inputs)
+## array(inputs)
 
-`inputs`: `Array` (one or several)<br> _Return value_: `array[]`
+`inputs`: `Array<Array>`<br> _Return value_: `Array<Array>`
 
 Returns a two-dimensional `array` where each row is a combination of `inputs`.
 
-## iterate(...inputs)
+## iterate(inputs)
 
-`inputs`: `Array` (one or several)<br> _Return value_:
+`inputs`: `Array<Array | Generator>`<br> _Return value_:
 [`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
 Iterates over each combination of `inputs`.

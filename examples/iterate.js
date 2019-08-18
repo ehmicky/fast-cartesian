@@ -14,7 +14,7 @@ const { iterate } = require('fast-cartesian')
 
 // Iterate over combinations
 // eslint-disable-next-line fp/no-loops
-for (const values of iterate(['red', 'blue'], ['circle', 'square'])) {
+for (const values of iterate([['red', 'blue'], ['circle', 'square']])) {
   console.log(values)
 }
 // [ 'red', 'circle' ]

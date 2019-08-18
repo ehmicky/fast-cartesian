@@ -6,7 +6,11 @@
 //  - can handle infinitely large inputs (`inputs[index].length`)
 //  - can handle 4e9 dimensions (`inputs.length`).
 //    This is the maximum size of an array in JavaScript.
-export const iterate = function*(...inputs) {
+export const iterate = function*(inputs) {
+  if (!Array.isArray(inputs)) {
+    throwValidation()
+  }
+
   if (inputs.length === 0) {
     return
   }
@@ -35,7 +39,7 @@ const getGenerator = function(input) {
   }
 
   if (typeof input !== 'function') {
-    throw new TypeError('Argument must be an array of arrays or generators')
+    throwValidation()
   }
 
   return input
@@ -45,10 +49,14 @@ const getIterator = function(generator) {
   const iterator = generator()
 
   if (!isIterator(iterator)) {
-    throw new TypeError('Argument must be an array of arrays or generators')
+    throwValidation()
   }
 
   return iterator
+}
+
+const throwValidation = function() {
+  throw new TypeError('Argument must be an array of arrays or generators')
 }
 
 const isIterator = function(value) {

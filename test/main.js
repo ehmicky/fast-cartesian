@@ -8,8 +8,8 @@ const METHODS = [
   { name: 'array', cartesian: array },
   {
     name: 'iterate',
-    cartesian(...args) {
-      return [...iterate(...args)]
+    cartesian(args) {
+      return [...iterate(args)]
     },
   },
 ]
@@ -31,7 +31,7 @@ METHODS.forEach(({ name, cartesian }) => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
     test(`${name} | ${title}`, t => {
-      t.snapshot(cartesian(...args))
+      t.snapshot(cartesian(args))
     })
   })
 
@@ -40,7 +40,7 @@ METHODS.forEach(({ name, cartesian }) => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
     test(`${name} | should throw: ${title}`, t => {
-      t.throws(cartesian.bind(null, ...args))
+      t.throws(cartesian.bind(null, args))
     })
   })
 })
@@ -51,7 +51,7 @@ if (isCi) {
     const inputs = Array.from({ length: 25 }, () => [0, 1])
 
     // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
-    for (const [] of iterate(...inputs)) {
+    for (const [] of iterate(inputs)) {
     }
 
     t.pass()

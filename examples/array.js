@@ -12,7 +12,7 @@ require('./utils.js')
 
 const { array } = require('fast-cartesian')
 
-console.log(array(['red', 'blue'], ['circle', 'square']))
+console.log(array([['red', 'blue'], ['circle', 'square']]))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -22,7 +22,10 @@ console.log(array(['red', 'blue'], ['circle', 'square']))
 
 // Returning initial indexes
 console.log(
-  array(Object.entries(['red', 'blue']), Object.entries(['circle', 'square'])),
+  array([
+    Object.entries(['red', 'blue']),
+    Object.entries(['circle', 'square']),
+  ]),
 )
 // [
 //   [ [ '0', 'red' ], [ '0', 'circle' ] ],

@@ -3,12 +3,12 @@ import { validateInput } from './validate.js'
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 // Optimized to be the fastest implementation in JavaScript.
-export const array = function(...arrays) {
+export const array = function(arrays) {
+  validateInput(arrays)
+
   if (arrays.length === 0) {
     return []
   }
-
-  validateInput(arrays)
 
   const loopFunc = getLoopFunc(arrays.length)
   const result = []

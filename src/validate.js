@@ -1,5 +1,9 @@
 // Validate 'array()' input
 export const validateInput = function(arrays) {
+  if (!Array.isArray(arrays)) {
+    throw new TypeError('Argument must be an array of arrays')
+  }
+
   arrays.forEach(validateArray)
   validateDimensions(arrays)
   validateCombinations(arrays)

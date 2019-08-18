@@ -11,7 +11,7 @@ import { array as fastCartesianArray } from '../src/main.js'
 
 export const fastCartesian = {
   title: 'fast-cartesian',
-  main: args => fastCartesianArray(...args),
+  main: args => fastCartesianArray(args),
 }
 
 export const fastCartesianProduct = {

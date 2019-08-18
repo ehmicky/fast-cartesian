@@ -4,6 +4,9 @@
 
 - Rename `cartesianArray()` and `cartesianIterate()` to `array()` and
   `iterate()`
+- An array of arguments must now be used instead of variadic arguments.
+  `array(...args)` is now `array(args)` and `iterate(...args)` is now
+  `iterate(args)`.
 
 ## Features
 
