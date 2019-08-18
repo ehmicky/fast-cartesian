@@ -15,14 +15,14 @@ COMBINATIONS_ARRAY.forEach(({ length, size }) => {
   })
 })
 
-const COMBINATIONS_ITERATE = [
-  { length: 100, size: 1 },
-  // We should do 32x2, unfortunately that takes half an hour
-  { length: 25, size: 2 },
-]
-COMBINATIONS_ITERATE.forEach(({ length, size }) => {
-  // Those tests are very slow, so it is run only in CI
-  if (isCi) {
+// Those tests are very slow, so it is run only in CI
+if (isCi) {
+  const COMBINATIONS_ITERATE = [
+    { length: 100, size: 1 },
+    // We should do 32x2, unfortunately that takes half an hour
+    { length: 25, size: 2 },
+  ]
+  COMBINATIONS_ITERATE.forEach(({ length, size }) => {
     test(`iterate | should not throw on high number of combinations | ${length}x${size}`, t => {
       const args = getBigArray(length, size)
 
@@ -32,8 +32,8 @@ COMBINATIONS_ITERATE.forEach(({ length, size }) => {
 
       t.pass()
     })
-  }
-})
+  })
+}
 
 const getBigArray = function(length, size) {
   return Array.from({ length }, () => Array.from({ length: size }, getTrue))
