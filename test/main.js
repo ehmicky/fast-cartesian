@@ -45,13 +45,18 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
+test('array | should throw on high number of combinations', t => {
+  const args = Array.from({ length: 100 }, () => [0])
+  t.throws(() => array(args))
+})
+
 // This test is very slow, so it is run only in CI
 if (isCi) {
   test('iterate | should not crash when combinations are huge', t => {
-    const inputs = Array.from({ length: 25 }, () => [0, 1])
+    const args = Array.from({ length: 25 }, () => [0, 1])
 
     // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
-    for (const [] of iterate(inputs)) {
+    for (const [] of iterate(args)) {
     }
 
     t.pass()
