@@ -7,6 +7,10 @@ export const cartesianArray = function(...arrays) {
 
   arrays.forEach(validateArray)
 
+  if (arrays.length === 1) {
+    return arrays[0].map(wrapArray)
+  }
+
   const result = []
   recurse(arrays, result, [], 0)
   return result
@@ -41,6 +45,11 @@ export const cartesianIterate = function*(...arrays) {
 
   arrays.forEach(validateArray)
 
+  if (arrays.length === 1) {
+    yield* arrays[0].map(wrapArray)
+    return
+  }
+
   yield* iterate(arrays, [], 0)
 }
 
@@ -64,4 +73,9 @@ const validateArray = function(array) {
   if (!Array.isArray(array)) {
     throw new TypeError(`Argument must be an array: ${array}`)
   }
+}
+
+// Performance shortcut when only one array is used
+const wrapArray = function(value) {
+  return [value]
 }

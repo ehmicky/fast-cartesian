@@ -110,7 +110,7 @@ library against alternatives
 
 ```
 ## fast-cartesian ###########
-1 array                1.36ms
+1 array                0.93ms
 2 arrays               1.41ms
 4 arrays               1.57ms
 8 arrays               1.69ms
