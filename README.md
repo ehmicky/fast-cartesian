@@ -100,6 +100,22 @@ Slower than [`array()`](#arrayinputs) but:
 - requires almost no memory
 - works with an infinite number of combinations
 
+If one of your arrays has more than 4 trillions of elements (which is the size
+limit of any array in JavaScript), you can bypass this limit by using a
+generator function instead.
+
+```js
+const generator = function*() {
+  // This generator can generate an infinite number of elements
+}
+
+// Notice we pass the function itself: `generator` not `generator()`
+const inputs = [['red', 'blue'], generator]
+
+for (const combination of iterate(inputs)) {
+}
+```
+
 # Benchmarks
 
 The following [benchmarks](benchmarks/main.js) compare the performance of this

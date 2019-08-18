@@ -11,6 +11,8 @@
 ## Features
 
 - `iterate()` can now handle an infinite number of combinations
+- Each dimension passed to `iterate()` can now be not only an array but also a
+  [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators).
 
 # 2.0.3
 
