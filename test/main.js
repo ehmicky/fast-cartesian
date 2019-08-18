@@ -26,14 +26,6 @@ const ARGS = [
   [[0, undefined, 1]],
 ]
 
-const getGenerators = function(args) {
-  return args.map(arg => {
-    return function* getArray() {
-      yield* arg
-    }
-  })
-}
-
 METHODS.forEach(({ name, cartesian }) => {
   ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
@@ -82,3 +74,11 @@ ARGS.forEach(args => {
     t.deepEqual(generatorsResult, arraysResult)
   })
 })
+
+const getGenerators = function(args) {
+  return args.map(arg => {
+    return function* getArray() {
+      yield* arg
+    }
+  })
+}
