@@ -64,7 +64,7 @@
     "is-ci": "^2.0.0",
     "lodash": "^4.17.15",
     "lodash.product": "^18.9.19",
-    "pretty-format": "^24.8.0",
+    "pretty-format": "^24.9.0",
     "spyd": "^0.1.0"
   },
   "engines": {
