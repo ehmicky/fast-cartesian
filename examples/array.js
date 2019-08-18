@@ -1,7 +1,7 @@
 // Demo of `array()`.
 // This file can be directly run:
 //   - first install `fast-cartesian`
-//   - then `node node_modules/fast-cartesian/examples/main.js`
+//   - then `node node_modules/fast-cartesian/examples/array.js`
 // An online demo is also available at:
 //   https://repl.it/@ehmicky/fast-cartesian
 
