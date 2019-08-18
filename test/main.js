@@ -45,17 +45,18 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
+const getBigArray = function(length, size) {
+  return Array.from({ length }, () => Array.from({ length: size }, getTrue))
+}
+
 const getTrue = function() {
   return true
 }
 
-const getBigArray = function({ length, size }) {
-  return Array.from({ length }, () => Array.from({ length: size }, getTrue))
-}
-
-const HIGH_COMBINATIONS = [{ length: 100, size: 1 }].map(getBigArray)
-HIGH_COMBINATIONS.forEach(args => {
-  test('array | should throw on high number of combinations', t => {
+const HIGH_COMBINATIONS = [{ length: 100, size: 1 }, { length: 32, size: 2 }]
+HIGH_COMBINATIONS.forEach(({ length, size }) => {
+  test(`array ${length}x${size} | should throw on high number of combinations`, t => {
+    const args = getBigArray(length, size)
     t.throws(array.bind(null, args))
   })
 })
