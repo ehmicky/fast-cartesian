@@ -104,6 +104,8 @@ If one of your arrays has more than 4 trillions of elements (which is the size
 limit of any array in JavaScript), you can bypass this limit by using a
 generator function instead.
 
+<!-- eslint-disable fp/no-loops, no-empty -->
+
 ```js
 const generator = function*() {
   // This generator can generate an infinite number of elements
