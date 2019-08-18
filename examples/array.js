@@ -1,4 +1,4 @@
-// Demo of the main usage.
+// Demo of `array()`.
 // This file can be directly run:
 //   - first install `fast-cartesian`
 //   - then `node node_modules/fast-cartesian/examples/main.js`
@@ -10,9 +10,9 @@
 // Ignore the following line: this is only needed for internal purposes.
 require('./utils.js')
 
-const { cartesianArray } = require('fast-cartesian')
+const { array } = require('fast-cartesian')
 
-console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
+console.log(array(['red', 'blue'], ['circle', 'square']))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -22,10 +22,7 @@ console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
 
 // Returning initial indexes
 console.log(
-  cartesianArray(
-    Object.entries(['red', 'blue']),
-    Object.entries(['circle', 'square']),
-  ),
+  array(Object.entries(['red', 'blue']), Object.entries(['circle', 'square'])),
 )
 // [
 //   [ [ '0', 'red' ], [ '0', 'circle' ] ],

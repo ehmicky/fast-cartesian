@@ -2,14 +2,14 @@ import test from 'ava'
 import prettyFormat from 'pretty-format'
 import isCi from 'is-ci'
 
-import { cartesianArray, cartesianIterate } from '../src/main.js'
+import { array, iterate } from '../src/main.js'
 
 const METHODS = [
-  { name: 'array', cartesian: cartesianArray },
+  { name: 'array', cartesian: array },
   {
     name: 'iterate',
     cartesian(...args) {
-      return [...cartesianIterate(...args)]
+      return [...iterate(...args)]
     },
   },
 ]
@@ -51,7 +51,7 @@ if (isCi) {
     const inputs = Array.from({ length: 25 }, () => [0, 1])
 
     // eslint-disable-next-line fp/no-loops, no-empty, no-empty-pattern
-    for (const [] of cartesianIterate(...inputs)) {
+    for (const [] of iterate(...inputs)) {
     }
 
     t.pass()

@@ -18,9 +18,9 @@ Retrieves every possible combination between several arrays
 <!-- eslint-disable fp/no-loops -->
 
 ```js
-const { cartesianArray, cartesianIterate } = require('fast-cartesian')
+const { array, iterate } = require('fast-cartesian')
 
-console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
+console.log(array(['red', 'blue'], ['circle', 'square']))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -30,10 +30,7 @@ console.log(cartesianArray(['red', 'blue'], ['circle', 'square']))
 
 // Return initial indexes
 console.log(
-  cartesianArray(
-    Object.entries(['red', 'blue']),
-    Object.entries(['circle', 'square']),
-  ),
+  array(Object.entries(['red', 'blue']), Object.entries(['circle', 'square'])),
 )
 // [
 //   [ [ '0', 'red' ], [ '0', 'circle' ] ],
@@ -43,7 +40,7 @@ console.log(
 // ]
 
 // Iterate over each combination
-for (const values of cartesianIterate(['red', 'blue'], ['circle', 'square'])) {
+for (const values of iterate(['red', 'blue'], ['circle', 'square'])) {
   console.log(values)
 }
 // [ 'red', 'circle' ]
@@ -70,32 +67,32 @@ npm install fast-cartesian
 <!-- eslint-disable fp/no-loops, no-empty -->
 
 ```js
-const { cartesianArray, cartesianIterate } = require('fast-cartesian')
+const { array, iterate } = require('fast-cartesian')
 
 const inputs = [['red', 'blue'], ['circle', 'square']]
 
-const combinations = cartesianArray(...inputs)
+const combinations = array(...inputs)
 
-for (const combination of cartesianIterate(...inputs)) {
+for (const combination of iterate(...inputs)) {
 }
 ```
 
 # API
 
-## cartesianArray(...inputs)
+## array(...inputs)
 
 `inputs`: `Array` (one or several)<br> _Return value_: `array[]`
 
 Returns a two-dimensional `array` where each row is a combination of `inputs`.
 
-## cartesianIterate(...inputs)
+## iterate(...inputs)
 
 `inputs`: `Array` (one or several)<br> _Return value_:
 [`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
 Iterates over each combination of `inputs`.
 
-Slower than [`cartesianArray()`](#cartesianarrayinputs) but:
+Slower than [`array()`](#arrayinputs) but:
 
 - requires almost no memory
 - works with an infinite number of combinations

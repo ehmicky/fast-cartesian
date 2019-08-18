@@ -1,2 +1,2 @@
-export { cartesianArray } from './array.js'
-export { cartesianIterate } from './iterate.js'
+export { array } from './array.js'
+export { iterate } from './iterate.js'

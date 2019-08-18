@@ -7,11 +7,11 @@ import fastCartesianProductFunc from 'fast-cartesian-product'
 import fastCartesianProductAltF from 'fast-cartesian-product-alt'
 import PowerCartesianProduct from 'power-cartesian-product'
 
-import { cartesianArray } from '../src/main.js'
+import { array as fastCartesianArray } from '../src/main.js'
 
 export const fastCartesian = {
   title: 'fast-cartesian',
-  main: args => cartesianArray(...args),
+  main: args => fastCartesianArray(...args),
 }
 
 export const fastCartesianProduct = {

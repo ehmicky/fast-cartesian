@@ -6,7 +6,7 @@
 //  - can handle infinitely large inputs (`inputs[index].length`)
 //  - can handle 4e9 dimensions (`inputs.length`).
 //    This is the maximum size of an array in JavaScript.
-export const cartesianIterate = function*(...inputs) {
+export const iterate = function*(...inputs) {
   if (inputs.length === 0) {
     return
   }
