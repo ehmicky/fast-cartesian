@@ -21,21 +21,6 @@ export const iterate = function*(inputs) {
   yield* getResults(generators, iterators)
 }
 
-const getResults = function*(generators, iterators) {
-  const results = iterators.map(getInitialValue)
-
-  if (hasEmptyIterators(results)) {
-    return
-  }
-
-  const result = results.map(getValue)
-
-  // eslint-disable-next-line fp/no-loops
-  do {
-    yield result.slice()
-  } while (!getResult(generators, iterators, result))
-}
-
 const getGenerator = function(input) {
   if (Array.isArray(input)) {
     return function* getArray() {
@@ -86,6 +71,21 @@ const isEmptyIterator = function({ done }) {
 
 const getValue = function({ value }) {
   return value
+}
+
+const getResults = function*(generators, iterators) {
+  const results = iterators.map(getInitialValue)
+
+  if (hasEmptyIterators(results)) {
+    return
+  }
+
+  const result = results.map(getValue)
+
+  // eslint-disable-next-line fp/no-loops
+  do {
+    yield result.slice()
+  } while (!getResult(generators, iterators, result))
 }
 
 // We use imperative code for performance purpose, which is why those ESLint
