@@ -35,7 +35,7 @@ METHODS.forEach(({ name, cartesian }) => {
     })
   })
 
-  const INVALID_ARGS = [[undefined], [null], [[], true]]
+  const INVALID_ARGS = [true, [undefined], [null], [[], true]]
   INVALID_ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
