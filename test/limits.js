@@ -19,8 +19,8 @@ COMBINATIONS_ARRAY.forEach(({ length, size }) => {
 if (isCi) {
   const COMBINATIONS_ITERATE = [
     { length: 100, size: 1 },
-    // We should do 32x2, unfortunately that takes half an hour
-    { length: 25, size: 2 },
+    // We should do 32x2, unfortunately that takes more than an hour
+    { length: 21, size: 2 },
   ]
   COMBINATIONS_ITERATE.forEach(({ length, size }) => {
     test(`iterate | should not throw on high number of combinations | ${length}x${size}`, t => {
