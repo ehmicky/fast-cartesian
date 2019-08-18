@@ -59,6 +59,7 @@
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
     "fast-cartesian-product": "^1.0.0",
+    "fast-cartesian-product-alt": "fisker/fast-cartesian-product#fast-cartesian-product-algorithm-2",
     "gulp": "^4.0.2",
     "gulp-shared-tasks": "^0.30.35",
     "husky": "^3.0.4",

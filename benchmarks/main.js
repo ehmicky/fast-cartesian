@@ -4,6 +4,7 @@ import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
 import fastCartesianProductFunc from 'fast-cartesian-product'
+import fastCartesianProductAltF from 'fast-cartesian-product-alt'
 import PowerCartesianProduct from 'power-cartesian-product'
 
 import { cartesianArray } from '../src/main.js'
@@ -13,14 +14,19 @@ export const fastCartesian = {
   main: args => cartesianArray(...args),
 }
 
-export const cartesianProduct = {
-  title: 'cartesian-product',
-  main: args => cartesianProductFunc(args),
-}
-
 export const fastCartesianProduct = {
   title: 'fast-cartesian-product',
   main: args => fastCartesianProductFunc(args),
+}
+
+export const fastCartesianProductAlt = {
+  title: 'fast-cartesian-product-alt',
+  main: args => fastCartesianProductAltF(args),
+}
+
+export const cartesianProduct = {
+  title: 'cartesian-product',
+  main: args => cartesianProductFunc(args),
 }
 
 export const powerCartesianProduct = {
