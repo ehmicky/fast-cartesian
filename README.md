@@ -11,7 +11,7 @@ Retrieves every possible combination between several arrays
 ([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)):
 
 - [fastest](#benchmarks) available library in JavaScript
-- can handle an infinite number of combinations
+- can handle an [infinite number](#iterateinputs) of combinations
 
 # Example
 
@@ -86,7 +86,7 @@ for (const combination of iterate(inputs)) {
 
 `inputs`: `Array<Array>`<br> _Return value_: `Array<Array>`
 
-Returns a two-dimensional `array` where each row is a combination of `inputs`.
+Returns a two-dimensional `Array` where each row is a combination of `inputs`.
 
 ## iterate(inputs)
 
@@ -100,9 +100,8 @@ Slower than [`array()`](#arrayinputs) but:
 - requires almost no memory
 - works with an infinite number of combinations
 
-If one of your arrays has more than 4 trillions of elements (which is the size
-limit of any array in JavaScript), you can bypass this limit by using a
-generator function instead.
+Arrays in JavaScript have a size limit of 4 trillions of elements. You can
+bypass this limit by using a generator function instead.
 
 <!-- eslint-disable fp/no-loops, no-empty -->
 
