@@ -17,6 +17,11 @@ export const iterate = function*(inputs) {
 
   const generators = inputs.map(getGenerator)
   const iterators = generators.map(getIterator)
+
+  yield* getResults(generators, iterators)
+}
+
+const getResults = function*(generators, iterators) {
   const results = iterators.map(getInitialValue)
 
   if (hasEmptyIterators(results)) {
