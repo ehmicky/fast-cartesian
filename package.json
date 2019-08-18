@@ -54,7 +54,7 @@
     "core-js": "^3.2.1"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^2.3.0",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
     "fast-cartesian-product": "0.0.2",
