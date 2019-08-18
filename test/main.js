@@ -25,6 +25,28 @@ const ARGS = [
   [[[0]]],
   [[0, undefined, 1]],
 ]
+const INVALID_ARGS = [
+  true,
+  [undefined],
+  [null],
+  [[], true],
+  [() => true],
+  [
+    function getObject() {
+      return {}
+    },
+  ],
+  [
+    function getNull() {
+      return null
+    },
+  ],
+  [
+    function getInvalidIterator() {
+      return { next: true }
+    },
+  ],
+]
 
 METHODS.forEach(({ name, cartesian }) => {
   ARGS.forEach(args => {
@@ -35,30 +57,9 @@ METHODS.forEach(({ name, cartesian }) => {
     })
   })
 
-  const INVALID_ARGS = [
-    true,
-    [undefined],
-    [null],
-    [[], true],
-    [() => true],
-    [
-      function getObject() {
-        return {}
-      },
-    ],
-    [
-      function getNull() {
-        return null
-      },
-    ],
-    [
-      function getInvalidIterator() {
-        return { next: true }
-      },
-    ],
-  ]
   INVALID_ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
+    // eslint-disable-next-line max-nested-callbacks
     test(`${name} | should throw: ${title}`, t => {
       t.throws(cartesian.bind(null, args))
     })
