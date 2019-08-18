@@ -11,7 +11,7 @@ Retrieves every possible combination between several arrays
 ([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)):
 
 - [fastest](#benchmarks) available library in JavaScript
-- can handle trillions of combinations without crashing your machine
+- can handle an infinite number of combinations
 
 # Example
 
@@ -95,8 +95,10 @@ Returns a two-dimensional `array` where each row is a combination of `inputs`.
 
 Iterates over each combination of `inputs`.
 
-Slower than [`cartesianArray()`](#cartesianarrayinputs) but requires much less
-memory, which enables handling trillions of combinations.
+Slower than [`cartesianArray()`](#cartesianarrayinputs) but:
+
+- requires almost no memory
+- works with an infinite number of combinations
 
 # Benchmarks
 
