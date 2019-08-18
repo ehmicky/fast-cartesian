@@ -109,47 +109,54 @@ library against alternatives
 [`lodash.product`](https://github.com/SeregPie/lodash.product)).
 
 ```
-## fast-cartesian ###########
-1 array                0.93ms
-2 arrays               1.41ms
-4 arrays               1.57ms
-8 arrays               1.69ms
-16 arrays              3.88ms
+## fast-cartesian ######################
+1 array                           0.87ms
+2 arrays                          1.02ms
+4 arrays                          1.22ms
+8 arrays                          1.43ms
+16 arrays                         3.49ms
 
-## fast-cartesian-product ###
-1 array                1.14ms
-2 arrays               1.46ms
-4 arrays               2.46ms
-8 arrays               4.37ms
-16 arrays             10.42ms
+## fast-cartesian-product (alternate) ##
+1 array                           0.94ms
+2 arrays                          1.02ms
+4 arrays                          1.23ms
+8 arrays                          1.43ms
+16 arrays                         3.58ms
 
-## power-cartesian-product ##
-1 array                4.70ms
-2 arrays               5.19ms
-4 arrays               7.33ms
-8 arrays              11.47ms
-16 arrays             19.21ms
+## fast-cartesian-product ##############
+1 array                           1.13ms
+2 arrays                          1.48ms
+4 arrays                          2.61ms
+8 arrays                          4.48ms
+16 arrays                        10.47ms
 
-## cartesian-product ########
-1 array                2.57ms
-2 arrays               3.68ms
-4 arrays              10.79ms
-8 arrays              14.33ms
-16 arrays             20.79ms
+## power-cartesian-product #############
+1 array                           4.70ms
+2 arrays                          5.19ms
+4 arrays                          7.33ms
+8 arrays                         11.47ms
+16 arrays                        19.21ms
 
-## cartesian ################
-1 array                6.39ms
-2 arrays              16.54ms
-4 arrays              17.69ms
-8 arrays              22.52ms
-16 arrays             34.37ms
+## cartesian-product ###################
+1 array                           2.57ms
+2 arrays                          3.68ms
+4 arrays                         10.79ms
+8 arrays                         14.33ms
+16 arrays                        20.79ms
 
-## lodash.product ###########
-1 array               38.81ms
-2 arrays              40.43ms
-4 arrays              43.31ms
-8 arrays              54.85ms
-16 arrays             82.06ms
+## cartesian ###########################
+1 array                           6.39ms
+2 arrays                         16.54ms
+4 arrays                         17.69ms
+8 arrays                         22.52ms
+16 arrays                        34.37ms
+
+## lodash.product ######################
+1 array                          38.81ms
+2 arrays                         40.43ms
+4 arrays                         43.31ms
+8 arrays                         54.85ms
+16 arrays                        82.06ms
 ```
 
 # Support

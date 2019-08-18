@@ -20,7 +20,7 @@ export const fastCartesianProduct = {
 }
 
 export const fastCartesianProductAlt = {
-  title: 'fast-cartesian-product-alt',
+  title: 'fast-cartesian-product (alternate)',
   main: args => fastCartesianProductAltF(args),
 }
 
