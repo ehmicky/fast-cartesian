@@ -1,3 +1,9 @@
+# 3.0.0
+
+## Features
+
+- `iterate()` can now handle an infinite number of combinations
+
 # 2.0.3
 
 ## Performance
