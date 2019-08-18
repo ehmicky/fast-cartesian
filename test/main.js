@@ -13,20 +13,21 @@ const METHODS = [
     },
   },
 ]
+const ARGS = [
+  [],
+  [[]],
+  [[], []],
+  [[0]],
+  [[0], [1]],
+  [[0, 1]],
+  [[0, 1], [2]],
+  [[0, 1], [2, 3]],
+  [[0, 1, 2], [3, 2]],
+  [[[0]]],
+  [[0, undefined, 1]],
+]
+
 METHODS.forEach(({ name, cartesian }) => {
-  const ARGS = [
-    [],
-    [[]],
-    [[], []],
-    [[0]],
-    [[0], [1]],
-    [[0, 1]],
-    [[0, 1], [2]],
-    [[0, 1], [2, 3]],
-    [[0, 1, 2], [3, 2]],
-    [[[0]]],
-    [[0, undefined, 1]],
-  ]
   ARGS.forEach(args => {
     const title = prettyFormat(args, { min: true })
     // eslint-disable-next-line max-nested-callbacks
