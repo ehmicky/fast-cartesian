@@ -22,10 +22,7 @@ console.log(fastCartesian([['red', 'blue'], ['circle', 'square']]))
 
 // Returning initial indexes
 console.log(
-  fastCartesian([
-    Object.entries(['red', 'blue']),
-    Object.entries(['circle', 'square']),
-  ]),
+  fastCartesian([['red', 'blue'], ['circle', 'square']].map(Object.entries)),
 )
 // [
 //   [ [ '0', 'red' ], [ '0', 'circle' ] ],
