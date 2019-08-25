@@ -1,10 +1,11 @@
+import bigCartesian from 'big-cartesian'
+import fastCartesianProduct from 'fast-cartesian-product'
 import cartesianProduct from 'cartesian-product'
+import PowerCartesianProduct from 'power-cartesian-product'
 import cartesian from 'cartesian'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
-import fastCartesianProduct from 'fast-cartesian-product'
-import PowerCartesianProduct from 'power-cartesian-product'
 
 import fastCartesian from '../src/main.js'
 
@@ -12,6 +13,10 @@ export const tasks = [
   {
     id: 'fast-cartesian',
     main: args => fastCartesian(args),
+  },
+  {
+    id: 'big-cartesian',
+    main: args => [...bigCartesian(args)],
   },
   {
     id: 'fast-cartesian-product',
