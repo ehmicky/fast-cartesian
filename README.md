@@ -88,6 +88,13 @@ library against alternatives
 8 arrays                          4.48ms
 16 arrays                        10.47ms
 
+## big-cartesian #######################
+1 array                           6.94ms
+2 arrays                          7.41ms
+4 arrays                          7.92ms
+8 arrays                          8.71ms
+16 arrays                        17.11ms
+
 ## power-cartesian-product #############
 1 array                           4.70ms
 2 arrays                          5.19ms
@@ -101,13 +108,6 @@ library against alternatives
 4 arrays                         10.79ms
 8 arrays                         14.33ms
 16 arrays                        20.79ms
-
-## big-cartesian #######################
-1 array                           9.63ms
-2 arrays                          9.18ms
-4 arrays                         10.61ms
-8 arrays                         16.07ms
-16 arrays                        25.38ms
 
 ## cartesian ###########################
 1 array                           6.39ms
