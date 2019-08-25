@@ -135,13 +135,6 @@ library against alternatives
 8 arrays                          1.43ms
 16 arrays                         3.49ms
 
-## fast-cartesian-product (alternate) ##
-1 array                           0.94ms
-2 arrays                          1.02ms
-4 arrays                          1.23ms
-8 arrays                          1.43ms
-16 arrays                         3.58ms
-
 ## fast-cartesian-product ##############
 1 array                           1.13ms
 2 arrays                          1.48ms
