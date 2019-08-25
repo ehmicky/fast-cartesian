@@ -1,17 +1,9 @@
 import test from 'ava'
 import prettyFormat from 'pretty-format'
 
-import { array, iterate } from '../src/main.js'
+import fastCartesian from '../src/main.js'
 
-const METHODS = [
-  { name: 'array', cartesian: array },
-  {
-    name: 'iterate',
-    cartesian(args) {
-      return [...iterate(args)]
-    },
-  },
-]
+const METHODS = [{ name: 'array', cartesian: fastCartesian }]
 
 const ARGS = [
   [],
@@ -70,20 +62,22 @@ METHODS.forEach(({ name, cartesian }) => {
   })
 })
 
-ARGS.forEach(args => {
-  const title = prettyFormat(args, { min: true })
-  test(`iterate | should work with generators | ${title}`, t => {
-    const generators = getGenerators(args)
-    const generatorsResult = [...iterate(generators)]
-    const arraysResult = [...iterate(args)]
-    t.deepEqual(generatorsResult, arraysResult)
+const COMBINATIONS = [
+  { length: 100, size: 1 },
+  { length: 32, size: 2 },
+  { length: 99, size: 1300 },
+]
+COMBINATIONS.forEach(({ length, size }) => {
+  test(`array | should throw on high number of combinations | ${length}x${size}`, t => {
+    const args = getBigArray(length, size)
+    t.throws(fastCartesian.bind(null, args))
   })
 })
 
-const getGenerators = function(args) {
-  return args.map(arg => {
-    return function* getArray() {
-      yield* arg
-    }
-  })
+const getBigArray = function(length, size) {
+  return Array.from({ length }, () => Array.from({ length: size }, getTrue))
+}
+
+const getTrue = function() {
+  return true
 }
