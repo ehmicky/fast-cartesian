@@ -8,35 +8,32 @@ import PowerCartesianProduct from 'power-cartesian-product'
 
 import { array as fastCartesianArray } from '../src/main.js'
 
-export const fastCartesian = {
-  title: 'fast-cartesian',
-  main: args => fastCartesianArray(args),
-}
-
-export const fastCartesianProduct = {
-  title: 'fast-cartesian-product',
-  main: args => fastCartesianProductFunc(args),
-}
-
-export const cartesianProduct = {
-  title: 'cartesian-product',
-  main: args => cartesianProductFunc(args),
-}
-
-export const powerCartesianProduct = {
-  title: 'power-cartesian-product',
-  main: args => [...new PowerCartesianProduct(args)],
-}
-
-export const cartesian = {
-  title: 'cartesian',
-  main: args => cartesianFunc(args),
-}
-
-export const lodashProduct = {
-  title: 'lodash.product',
-  main: args => lodash.product(...args),
-}
+export const tasks = [
+  {
+    id: 'fast-cartesian',
+    main: args => fastCartesianArray(args)
+  },
+  {
+    id: 'fast-cartesian-product',
+    main: args => fastCartesianProductFunc(args)
+  },
+  {
+    id: 'cartesian-product',
+    main: args => cartesianProductFunc(args)
+  },
+  {
+    id: 'power-cartesian-product',
+    main: args => [...new PowerCartesianProduct(args)]
+  },
+  {
+    id: 'cartesian',
+    main: args => cartesianFunc(args)
+  },
+  {
+    id: 'lodash.product',
+    main: args => lodash.product(...args)
+  }
+]
 
 // Retrieve several arguments for cartesian products:
 //  - the return value length is always the same
