@@ -3,8 +3,6 @@ import prettyFormat from 'pretty-format'
 
 import fastCartesian from '../src/main.js'
 
-const METHODS = [{ name: 'array', cartesian: fastCartesian }]
-
 const ARGS = [
   [],
   [[]],
@@ -42,23 +40,17 @@ const INVALID_ARGS = [
   ],
 ]
 
-METHODS.forEach(({ name, cartesian }) => {
-  ARGS.forEach(args => {
-    const title = prettyFormat(args, { min: true })
-    // eslint-disable-next-line max-nested-callbacks
-    test(`${name} | ${title}`, t => {
-      t.snapshot(cartesian(args))
-    })
+ARGS.forEach(args => {
+  const title = prettyFormat(args, { min: true })
+  test(`success | ${title}`, t => {
+    t.snapshot(fastCartesian(args))
   })
 })
 
-METHODS.forEach(({ name, cartesian }) => {
-  INVALID_ARGS.forEach(args => {
-    const title = prettyFormat(args, { min: true })
-    // eslint-disable-next-line max-nested-callbacks
-    test(`${name} | should throw: ${title}`, t => {
-      t.throws(cartesian.bind(null, args))
-    })
+INVALID_ARGS.forEach(args => {
+  const title = prettyFormat(args, { min: true })
+  test(`should throw | ${title}`, t => {
+    t.throws(fastCartesian.bind(null, args))
   })
 })
 
