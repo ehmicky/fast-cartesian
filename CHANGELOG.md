@@ -1,3 +1,11 @@
+# 4.0.0
+
+## Breaking changes
+
+- The `iterate()` method has been moved to a separate module
+  [`big-cartesian`](https://github.com/ehmicky/big-cartesian).
+- The `array()` method is now the default export instead of a named export.
+
 # 3.0.0
 
 ## Breaking changes
