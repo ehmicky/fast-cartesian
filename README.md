@@ -8,19 +8,20 @@
 Fast cartesian product.
 
 Retrieves every possible combination between several arrays
-([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)):
+([cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)).
 
-- [fastest](#benchmarks) available library in JavaScript
-- can handle an [infinite number](#iterateinputs) of combinations
+[Fastest](#benchmarks) available library in JavaScript.
+
+When producing millions of combinations or combining hundreds of arrays,
+[`big-cartesian`](https://github.com/ehmicky/big-cartesian) should be used
+instead.
 
 # Example
 
-<!-- eslint-disable fp/no-loops -->
-
 ```js
-const { array, iterate } = require('fast-cartesian')
+const fastCartesian = require('fast-cartesian')
 
-console.log(array([['red', 'blue'], ['circle', 'square']]))
+console.log(fastCartesian([['red', 'blue'], ['circle', 'square']]))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -30,7 +31,7 @@ console.log(array([['red', 'blue'], ['circle', 'square']]))
 
 // Return initial indexes
 console.log(
-  array([
+  fastCartesian([
     Object.entries(['red', 'blue']),
     Object.entries(['circle', 'square']),
   ]),
@@ -41,15 +42,6 @@ console.log(
 //   [ [ '1', 'blue' ], [ '0', 'circle' ] ],
 //   [ [ '1', 'blue' ], [ '1', 'square' ] ]
 // ]
-
-// Iterate over each combination
-for (const values of iterate([['red', 'blue'], ['circle', 'square']])) {
-  console.log(values)
-}
-// [ 'red', 'circle' ]
-// [ 'red', 'square' ]
-// [ 'blue', 'circle' ]
-// [ 'blue', 'square' ]
 ```
 
 # Demo
@@ -65,63 +57,20 @@ You can try this library:
 npm install fast-cartesian
 ```
 
-# Usage
-
-<!-- eslint-disable fp/no-loops, no-empty -->
-
-```js
-const { array, iterate } = require('fast-cartesian')
-
-const inputs = [['red', 'blue'], ['circle', 'square']]
-
-const combinations = array(inputs)
-
-for (const combination of iterate(inputs)) {
-}
-```
-
 # API
 
-## array(inputs)
+## fastCartesian(inputs)
 
 `inputs`: `Array<Array>`<br> _Return value_: `Array<Array>`
 
 Returns a two-dimensional `Array` where each row is a combination of `inputs`.
 
-## iterate(inputs)
-
-`inputs`: `Array<Array | Generator>`<br> _Return value_:
-[`Iterable`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
-
-Iterates over each combination of `inputs`.
-
-Slower than [`array()`](#arrayinputs) but:
-
-- requires almost no memory
-- works with an infinite number of combinations
-
-Arrays in JavaScript have a size limit of 4 trillions of elements. You can
-bypass this limit by using a generator function instead.
-
-<!-- eslint-disable fp/no-loops, no-empty -->
-
-```js
-const generator = function*() {
-  // This generator can generate an infinite number of elements
-}
-
-// Notice we pass the function itself: `generator` not `generator()`
-const inputs = [['red', 'blue'], generator]
-
-for (const combination of iterate(inputs)) {
-}
-```
-
 # Benchmarks
 
 The following [benchmarks](benchmarks/main.js) compare the performance of this
 library against alternatives
-([`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),
+([`big-cartesian`](https://github.com/ehmicky/big-cartesian),
+[`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),
 [`fast-cartesian-product`](https://github.com/fisker/fast-cartesian-product),
 [`power-cartesian-product`](https://github.com/fisker/power-cartesian-product),
 [`cartesian`](https://github.com/alexindigo/cartesian) and
