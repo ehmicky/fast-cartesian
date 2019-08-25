@@ -96,11 +96,11 @@ library against alternatives
 16 arrays                        17.11ms
 
 ## power-cartesian-product #############
-1 array                           4.70ms
-2 arrays                          5.19ms
-4 arrays                          7.33ms
-8 arrays                         11.47ms
-16 arrays                        19.21ms
+1 array                           4.81ms
+2 arrays                          5.29ms
+4 arrays                          7.44ms
+8 arrays                         11.51ms
+16 arrays                        19.60ms
 
 ## cartesian-product ###################
 1 array                           2.57ms
