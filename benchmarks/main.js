@@ -6,7 +6,7 @@ import 'lodash.product'
 import fastCartesianProduct from 'fast-cartesian-product'
 import PowerCartesianProduct from 'power-cartesian-product'
 
-import { array as fastCartesian } from '../src/main.js'
+import fastCartesian from '../src/main.js'
 
 export const tasks = [
   {
