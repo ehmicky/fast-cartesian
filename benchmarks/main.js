@@ -1,38 +1,38 @@
-import cartesianProductFunc from 'cartesian-product'
-import cartesianFunc from 'cartesian'
+import cartesianProduct from 'cartesian-product'
+import cartesian from 'cartesian'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
-import fastCartesianProductFunc from 'fast-cartesian-product'
+import fastCartesianProduct from 'fast-cartesian-product'
 import PowerCartesianProduct from 'power-cartesian-product'
 
-import { array as fastCartesianArray } from '../src/main.js'
+import { array as fastCartesian } from '../src/main.js'
 
 export const tasks = [
   {
     id: 'fast-cartesian',
-    main: args => fastCartesianArray(args)
+    main: args => fastCartesian(args),
   },
   {
     id: 'fast-cartesian-product',
-    main: args => fastCartesianProductFunc(args)
+    main: args => fastCartesianProduct(args),
   },
   {
     id: 'cartesian-product',
-    main: args => cartesianProductFunc(args)
+    main: args => cartesianProduct(args),
   },
   {
     id: 'power-cartesian-product',
-    main: args => [...new PowerCartesianProduct(args)]
+    main: args => [...new PowerCartesianProduct(args)],
   },
   {
     id: 'cartesian',
-    main: args => cartesianFunc(args)
+    main: args => cartesian(args),
   },
   {
     id: 'lodash.product',
-    main: args => lodash.product(...args)
-  }
+    main: args => lodash.product(...args),
+  },
 ]
 
 // Retrieve several arguments for cartesian products:
