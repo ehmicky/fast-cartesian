@@ -1,7 +1,7 @@
-// Demo of `array()`.
+// Demo of `fast-cartesian`.
 // This file can be directly run:
 //   - first install `fast-cartesian`
-//   - then `node node_modules/fast-cartesian/examples/array.js`
+//   - then `node node_modules/fast-cartesian/examples/main.js`
 // An online demo is also available at:
 //   https://repl.it/@ehmicky/fast-cartesian
 
@@ -10,9 +10,9 @@
 // Ignore the following line: this is only needed for internal purposes.
 require('./utils.js')
 
-const { array } = require('fast-cartesian')
+const fastCartesian = require('fast-cartesian')
 
-console.log(array([['red', 'blue'], ['circle', 'square']]))
+console.log(fastCartesian([['red', 'blue'], ['circle', 'square']]))
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -22,7 +22,7 @@ console.log(array([['red', 'blue'], ['circle', 'square']]))
 
 // Returning initial indexes
 console.log(
-  array([
+  fastCartesian([
     Object.entries(['red', 'blue']),
     Object.entries(['circle', 'square']),
   ]),
