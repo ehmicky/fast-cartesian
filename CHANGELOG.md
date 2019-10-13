@@ -1,3 +1,9 @@
+# 4.1.0
+
+## Dependencies
+
+- Remove `core-js` dependency. This library now has 0 production dependencies.
+
 # 4.0.0
 
 ## Breaking changes
