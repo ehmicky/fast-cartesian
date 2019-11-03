@@ -21,7 +21,12 @@ instead.
 ```js
 const fastCartesian = require('fast-cartesian')
 
-console.log(fastCartesian([['red', 'blue'], ['circle', 'square']]))
+console.log(
+  fastCartesian([
+    ['red', 'blue'],
+    ['circle', 'square'],
+  ]),
+)
 // [
 //   [ 'red', 'circle' ],
 //   [ 'red', 'square' ],
@@ -31,7 +36,12 @@ console.log(fastCartesian([['red', 'blue'], ['circle', 'square']]))
 
 // Return initial indexes
 console.log(
-  fastCartesian([['red', 'blue'], ['circle', 'square']].map(Object.entries)),
+  fastCartesian(
+    [
+      ['red', 'blue'],
+      ['circle', 'square'],
+    ].map(Object.entries),
+  ),
 )
 // [
 //   [ [ '0', 'red' ], [ '0', 'circle' ] ],
