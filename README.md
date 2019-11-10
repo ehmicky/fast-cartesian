@@ -68,7 +68,8 @@ npm install fast-cartesian
 
 ## fastCartesian(inputs)
 
-`inputs`: `Array<Array>`<br> _Return value_: `Array<Array>`
+`inputs`: `Array<Array>`\
+_Return value_: `Array<Array>`
 
 Returns a two-dimensional `Array` where each row is a combination of `inputs`.
 
