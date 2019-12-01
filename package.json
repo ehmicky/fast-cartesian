@@ -57,7 +57,7 @@
     "big-cartesian": "^1.1.1",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
-    "fast-cartesian-product": "^1.0.0",
+    "fast-cartesian-product": "^1.0.2",
     "gulp": "^4.0.2",
     "husky": "^3.1.0",
     "is-ci": "^2.0.0",
