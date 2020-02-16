@@ -59,7 +59,7 @@
     "cartesian-product": "^2.1.2",
     "fast-cartesian-product": "^1.0.2",
     "gulp": "^4.0.2",
-    "husky": "^4.2.1",
+    "husky": "^4.2.3",
     "is-ci": "^2.0.0",
     "lodash": "^4.17.15",
     "lodash.product": "^18.9.19",
