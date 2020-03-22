@@ -1,5 +1,5 @@
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/fast-cartesian.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/fast-cartesian)
-[![Travis](https://img.shields.io/badge/cross-platform-4cc61e.svg?logo=travis)](https://travis-ci.org/ehmicky/fast-cartesian)
+[![Build](https://github.com/ehmicky/fast-cartesian/workflows/Build/badge.svg)](https://github.com/ehmicky/fast-cartesian/actions)
 [![Node](https://img.shields.io/node/v/fast-cartesian.svg?logo=node.js)](https://www.npmjs.com/package/fast-cartesian)
 [![Gitter](https://img.shields.io/gitter/room/ehmicky/fast-cartesian.svg?logo=gitter)](https://gitter.im/ehmicky/fast-cartesian)
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
