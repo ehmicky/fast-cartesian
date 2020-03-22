@@ -3,7 +3,7 @@ import prettyFormat from 'pretty-format'
 
 import fastCartesian from '../src/main.js'
 
-const getTitle = function(args) {
+const getTitle = function (args) {
   return prettyFormat(args, { min: true })
 }
 
@@ -26,8 +26,8 @@ const ARGS = [
   [[[0]]],
   [[0, undefined, 1]],
 ]
-ARGS.forEach(args => {
-  test(`success | ${getTitle(args)}`, t => {
+ARGS.forEach((args) => {
+  test(`success | ${getTitle(args)}`, (t) => {
     t.snapshot(fastCartesian(args))
   })
 })
@@ -54,8 +54,8 @@ const INVALID_ARGS = [
     },
   ],
 ]
-INVALID_ARGS.forEach(args => {
-  test(`should throw | ${getTitle(args)}`, t => {
+INVALID_ARGS.forEach((args) => {
+  test(`should throw | ${getTitle(args)}`, (t) => {
     t.throws(fastCartesian.bind(null, args))
   })
 })
@@ -65,19 +65,19 @@ const COMBINATIONS = [
   { length: 32, size: 2 },
   { length: 99, size: 1300 },
 ]
-COMBINATIONS.forEach(combination => {
+COMBINATIONS.forEach((combination) => {
   test(`should throw on high number of combinations | ${getTitle(
     combination,
-  )}`, t => {
+  )}`, (t) => {
     const args = getBigArray(combination)
     t.throws(fastCartesian.bind(null, args))
   })
 })
 
-const getBigArray = function({ length, size }) {
+const getBigArray = function ({ length, size }) {
   return Array.from({ length }, () => Array.from({ length: size }, getTrue))
 }
 
-const getTrue = function() {
+const getTrue = function () {
   return true
 }

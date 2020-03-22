@@ -12,31 +12,31 @@ import fastCartesian from '../src/main.js'
 export const tasks = [
   {
     id: 'fast-cartesian',
-    main: args => fastCartesian(args),
+    main: (args) => fastCartesian(args),
   },
   {
     id: 'big-cartesian',
-    main: args => [...bigCartesian(args)],
+    main: (args) => [...bigCartesian(args)],
   },
   {
     id: 'fast-cartesian-product',
-    main: args => fastCartesianProduct(args),
+    main: (args) => fastCartesianProduct(args),
   },
   {
     id: 'cartesian-product',
-    main: args => cartesianProduct(args),
+    main: (args) => cartesianProduct(args),
   },
   {
     id: 'power-cartesian-product',
-    main: args => [...new PowerCartesianProduct(args)],
+    main: (args) => [...new PowerCartesianProduct(args)],
   },
   {
     id: 'cartesian',
-    main: args => cartesian(args),
+    main: (args) => cartesian(args),
   },
   {
     id: 'lodash.product',
-    main: args => lodash.product(...args),
+    main: (args) => lodash.product(...args),
   },
 ]
 
@@ -47,11 +47,11 @@ export const tasks = [
 ///  [[0, 1, 2, 3]] (1 dimension)
 //   [[0, 1], [0, 1]] (2 dimensions)
 //   [[0], [0], [0], [0]] (4 dimensions)
-const getVariations = function(length) {
+const getVariations = function (length) {
   return Array.from({ length }, (value, index) => getVariation(index, length))
 }
 
-const getVariation = function(index, length) {
+const getVariation = function (index, length) {
   const dimensions = 2 ** index
   const unitLength = 2 ** (2 ** (length - index - 1))
   const unit = Array.from({ length: unitLength }, getIndex)
@@ -62,7 +62,7 @@ const getVariation = function(index, length) {
   return { id, title, value }
 }
 
-const getIndex = function(value, index) {
+const getIndex = function (value, index) {
   return index
 }
 

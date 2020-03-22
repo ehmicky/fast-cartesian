@@ -3,7 +3,7 @@ import { validateInput } from './validate.js'
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 // Optimized to be the fastest implementation in JavaScript.
-const fastCartesian = function(arrays) {
+const fastCartesian = function (arrays) {
   validateInput(arrays)
 
   if (arrays.length === 0) {
@@ -16,7 +16,7 @@ const fastCartesian = function(arrays) {
   return result
 }
 
-const getLoopFunc = function(length) {
+const getLoopFunc = function (length) {
   const cachedLoopFunc = cache[length]
 
   if (cachedLoopFunc !== undefined) {
@@ -40,14 +40,14 @@ const cache = {}
 //       }
 //     }
 //   }
-const mGetLoopFunc = function(length) {
+const mGetLoopFunc = function (length) {
   const indexes = Array.from({ length }, getIndex)
   const repeatA = repeat.bind(null, indexes)
 
   const start = repeatA(
-    index => `for (const value${index} of arrays[${index}]) {`,
+    (index) => `for (const value${index} of arrays[${index}]) {`,
   )
-  const middle = repeatA(index => `value${index}`, ', ')
+  const middle = repeatA((index) => `value${index}`, ', ')
   const end = repeatA(() => '}')
 
   // eslint-disable-next-line no-new-func
@@ -58,11 +58,11 @@ const mGetLoopFunc = function(length) {
   )
 }
 
-const getIndex = function(value, index) {
+const getIndex = function (value, index) {
   return String(index)
 }
 
-const repeat = function(indexes, mapper, separator = '\n') {
+const repeat = function (indexes, mapper, separator = '\n') {
   return indexes.map(mapper).join(separator)
 }
 
