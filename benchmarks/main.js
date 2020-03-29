@@ -1,9 +1,9 @@
 import bigCartesian from 'big-cartesian'
-import fastCartesianProduct from 'fast-cartesian-product'
-import cartesianProduct from 'cartesian-product'
-import PowerCartesianProduct from 'power-cartesian-product'
 import cartesian from 'cartesian'
+import cartesianProduct from 'cartesian-product'
+import fastCartesianProduct from 'fast-cartesian-product'
 import lodash from 'lodash'
+import PowerCartesianProduct from 'power-cartesian-product'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
 
