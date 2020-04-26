@@ -42,7 +42,7 @@ const cache = {}
 //   }
 const mGetLoopFunc = function (length) {
   const indexes = Array.from({ length }, getIndex)
-  const repeatA = repeat.bind(null, indexes)
+  const repeatA = repeat.bind(undefined, indexes)
 
   const start = repeatA(
     (index) => `for (const value${index} of arrays[${index}]) {`,

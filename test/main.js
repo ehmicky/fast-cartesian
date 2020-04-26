@@ -56,7 +56,7 @@ const INVALID_ARGS = [
 ]
 INVALID_ARGS.forEach((args) => {
   test(`should throw | ${getTitle(args)}`, (t) => {
-    t.throws(fastCartesian.bind(null, args))
+    t.throws(fastCartesian.bind(undefined, args))
   })
 })
 
@@ -70,7 +70,7 @@ COMBINATIONS.forEach((combination) => {
     combination,
   )}`, (t) => {
     const args = getBigArray(combination)
-    t.throws(fastCartesian.bind(null, args))
+    t.throws(fastCartesian.bind(undefined, args))
   })
 })
 
