@@ -53,7 +53,7 @@
   "dependencies": {},
   "devDependencies": {
     "@ehmicky/dev-tasks": "^0.31.40",
-    "ava": "^3.8.0",
+    "ava": "^3.8.1",
     "big-cartesian": "^2.0.0",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
