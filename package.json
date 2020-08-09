@@ -61,7 +61,7 @@
     "gulp": "^4.0.2",
     "husky": "^4.2.5",
     "is-ci": "^2.0.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "lodash.product": "^18.9.19",
     "power-cartesian-product": "^0.0.6",
     "pretty-format": "^26.4.0",
