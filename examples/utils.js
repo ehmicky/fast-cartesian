@@ -4,7 +4,6 @@
 
 'use strict'
 
-// eslint-disable-next-line unicorn/import-style
 const Module = require('module')
 
 const { name } = require('../package.json')
