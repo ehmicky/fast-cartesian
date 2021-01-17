@@ -16,6 +16,13 @@ When producing millions of combinations or combining hundreds of arrays,
 [`big-cartesian`](https://github.com/ehmicky/big-cartesian) should be used
 instead.
 
+# Testimonials
+
+> We are now using this library for ourworldindata.org and have seen an almost
+> 50-fold performance increase from the naive method we used before!
+>
+> @MarcelGerber
+
 # Example
 
 ```js
