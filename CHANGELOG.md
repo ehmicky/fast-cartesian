@@ -1,3 +1,9 @@
+# 5.1.0
+
+## Features
+
+- Add TypeScript types. Thanks @MarcelGerber!
+
 # 5.0.0
 
 ## Breaking changes
