@@ -42,14 +42,12 @@ const cache = {}
 //   }
 const mGetLoopFunc = function (length) {
   const indexes = Array.from({ length }, getIndex)
-  const repeatA = repeat.bind(undefined, indexes)
 
-  const start = repeatA(
-    (index) => `for (const value${index} of arrays[${index}]) {`,
-    '\n',
-  )
-  const middle = repeatA((index) => `value${index}`, ', ')
-  const end = repeatA(() => '}', '\n')
+  const start = indexes
+    .map((index) => `for (const value${index} of arrays[${index}]) {`)
+    .join('\n')
+  const middle = indexes.map((index) => `value${index}`).join(', ')
+  const end = '}\n'.repeat(length)
 
   // eslint-disable-next-line no-new-func
   return new Function(
@@ -61,10 +59,6 @@ const mGetLoopFunc = function (length) {
 
 const getIndex = function (value, index) {
   return String(index)
-}
-
-const repeat = function (indexes, mapper, separator) {
-  return indexes.map(mapper).join(separator)
 }
 
 // We do not use `export default` because Babel transpiles it in a way that
