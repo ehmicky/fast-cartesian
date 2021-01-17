@@ -42,7 +42,6 @@ const cache = {}
 //   }
 const mGetLoopFunc = function (length) {
   const indexes = Array.from({ length }, getIndex)
-
   const start = indexes
     .map((index) => `for (const value${index} of arrays[${index}]) {`)
     .join('\n')
