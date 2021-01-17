@@ -46,9 +46,10 @@ const mGetLoopFunc = function (length) {
 
   const start = repeatA(
     (index) => `for (const value${index} of arrays[${index}]) {`,
+    '\n',
   )
   const middle = repeatA((index) => `value${index}`, ', ')
-  const end = repeatA(() => '}')
+  const end = repeatA(() => '}', '\n')
 
   // eslint-disable-next-line no-new-func
   return new Function(
@@ -62,7 +63,7 @@ const getIndex = function (value, index) {
   return String(index)
 }
 
-const repeat = function (indexes, mapper, separator = '\n') {
+const repeat = function (indexes, mapper, separator) {
   return indexes.map(mapper).join(separator)
 }
 
