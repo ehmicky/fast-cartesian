@@ -17,7 +17,7 @@ const validateArray = function (array) {
 
 // Maximum number of nested `for` loops. In my machine, it's 604 but it is
 // engine-specific so we use a safe number. Above the limit, a max call stack
-// error is throws by the engine.
+// error is thrown by the engine.
 const validateDimensions = function ({ length }) {
   if (length >= MAX_DIMENSIONS) {
     throw new TypeError(
