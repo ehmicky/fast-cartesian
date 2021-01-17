@@ -21,7 +21,7 @@ const validateArray = function (array) {
 const validateDimensions = function ({ length }) {
   if (length >= MAX_DIMENSIONS) {
     throw new TypeError(
-      `Too many arrays (${length}): please use 'iterate()' instead of 'array()'`,
+      `Too many arrays (${length}): please use the 'big-cartesian' library instead of 'fast-cartesian'`,
     )
   }
 }
@@ -35,7 +35,7 @@ const validateCombinations = function (arrays) {
   if (size >= MAX_SIZE) {
     const sizeStr = Number.isFinite(size) ? ` (${size.toExponential(0)})` : ''
     throw new TypeError(
-      `Too many combinations${sizeStr}: please use 'iterate()' instead of 'array()'`,
+      `Too many combinations${sizeStr}: please use the 'big-cartesian' library instead of 'fast-cartesian'`,
     )
   }
 }
