@@ -20,7 +20,17 @@
         "ideas",
         "doc"
       ]
+    },
+    {
+      "login": "MarcelGerber",
+      "name": "Marcel Gerber",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2641501?v=4",
+      "profile": "https://marcelgerber.de",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
