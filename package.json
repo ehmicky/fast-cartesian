@@ -50,15 +50,12 @@
     "lib": "src",
     "test": "test"
   },
-  "dependencies": {},
   "devDependencies": {
     "@ehmicky/dev-tasks": "^0.31.79",
-    "ava": "^3.15.0",
     "big-cartesian": "^2.0.0",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
     "fast-cartesian-product": "^1.0.3",
-    "gulp": "^4.0.2",
     "husky": "^4.3.8",
     "is-ci": "^2.0.0",
     "lodash": "^4.17.20",
