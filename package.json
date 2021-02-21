@@ -55,7 +55,6 @@
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
     "fast-cartesian-product": "^1.0.3",
-    "is-ci": "^3.0.0",
     "lodash": "^4.17.20",
     "lodash.product": "^18.9.19",
     "power-cartesian-product": "^0.0.6",
