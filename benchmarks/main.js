@@ -3,9 +3,9 @@ import cartesian from 'cartesian'
 import cartesianProduct from 'cartesian-product'
 import fastCartesianProduct from 'fast-cartesian-product'
 import lodash from 'lodash'
-import PowerCartesianProduct from 'power-cartesian-product'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
+import PowerCartesianProduct from 'power-cartesian-product'
 
 import fastCartesian from '../src/main.js'
 
