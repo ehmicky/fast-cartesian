@@ -24,8 +24,10 @@ instead.
 
 # Example
 
+<!-- eslint-disable node/no-missing-import -->
+
 ```js
-const fastCartesian = require('fast-cartesian')
+import fastCartesian from 'fast-cartesian'
 
 console.log(
   fastCartesian([

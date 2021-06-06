@@ -5,12 +5,8 @@
 // An online demo is also available at:
 //   https://repl.it/@ehmicky/fast-cartesian
 
-'use strict'
-
-// Ignore the following line: this is only needed for internal purposes.
-require('./utils.js')
-
-const fastCartesian = require('fast-cartesian')
+// eslint-disable-next-line node/no-missing-import
+import fastCartesian from 'fast-cartesian'
 
 console.log(
   fastCartesian([

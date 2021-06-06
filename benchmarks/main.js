@@ -1,13 +1,13 @@
 import bigCartesian from 'big-cartesian'
 import cartesian from 'cartesian'
 import cartesianProduct from 'cartesian-product'
+// eslint-disable-next-line import/no-unresolved, node/no-missing-import
+import fastCartesian from 'fast-cartesian'
 import fastCartesianProduct from 'fast-cartesian-product'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
 import PowerCartesianProduct from 'power-cartesian-product'
-
-import fastCartesian from '../src/main.js'
 
 export const tasks = [
   {

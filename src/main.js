@@ -3,7 +3,8 @@ import { validateInput } from './validate.js'
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 // Optimized to be the fastest implementation in JavaScript.
-const fastCartesian = function (arrays) {
+// eslint-disable-next-line import/no-default-export
+export default function fastCartesian(arrays) {
   validateInput(arrays)
 
   if (arrays.length === 0) {
@@ -59,7 +60,3 @@ const mGetLoopFunc = function (length) {
 const getIndex = function (value, index) {
   return String(index)
 }
-
-// We do not use `export default` because Babel transpiles it in a way that
-// requires CommonJS users to `require(...).default` instead of `require(...)`.
-module.exports = fastCartesian
