@@ -24,8 +24,6 @@ instead.
 
 # Example
 
-<!-- eslint-disable node/no-missing-import -->
-
 ```js
 import fastCartesian from 'fast-cartesian'
 
