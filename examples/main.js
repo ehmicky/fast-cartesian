@@ -5,7 +5,6 @@
 // An online demo is also available at:
 //   https://repl.it/@ehmicky/fast-cartesian
 
-// eslint-disable-next-line node/no-missing-import
 import fastCartesian from 'fast-cartesian'
 
 console.log(
