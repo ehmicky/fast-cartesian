@@ -1,9 +1,9 @@
 import test from 'ava'
 import fastCartesian from 'fast-cartesian'
-import prettyFormat from 'pretty-format'
+import { format } from 'pretty-format'
 
 const getTitle = function (args) {
-  return prettyFormat(args, { min: true })
+  return format(args, { min: true })
 }
 
 const ARGS = [
