@@ -3,7 +3,6 @@ import { validateInput } from './validate.js'
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 // Optimized to be the fastest implementation in JavaScript.
-// eslint-disable-next-line import/no-default-export
 export default function fastCartesian(arrays) {
   validateInput(arrays)
 
