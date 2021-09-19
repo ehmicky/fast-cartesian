@@ -8,34 +8,68 @@ import lodash from 'lodash'
 import 'lodash.product'
 import PowerCartesianProduct from 'power-cartesian-product'
 
-import { INPUTS } from './inputs.js'
+// eslint-disable-next-line fp/no-let, init-declarations
+let matrix
 
-export const fastCartesianMain = function ({ size }) {
-  fastCartesianLib(INPUTS[size])
+// Retrieve matrix used as argument based on the input, e.g. '5x6'
+const beforeAll = function ({ size }) {
+  const [firstLength, secondLength] = size.split('x')
+  const array = Array.from({ length: Number(secondLength) }, getIndex)
+  // eslint-disable-next-line fp/no-mutation
+  matrix = Array.from({ length: Number(firstLength) }, () => array)
 }
 
-export const bigCartesian = function ({ size }) {
-  // eslint-disable-next-line no-unused-expressions
-  ;[...bigCartesianLib(INPUTS[size])]
+const getIndex = function (_, index) {
+  return index
 }
 
-export const fastCartesianProduct = function ({ size }) {
-  fastCartesianProductLib(INPUTS[size])
+export const fastCartesianMain = {
+  beforeAll,
+  main() {
+    fastCartesianLib(matrix)
+  },
 }
 
-export const cartesianProduct = function ({ size }) {
-  cartesianProductLib(INPUTS[size])
+export const bigCartesian = {
+  beforeAll,
+  main() {
+    // eslint-disable-next-line no-unused-expressions
+    ;[...bigCartesianLib(matrix)]
+  },
 }
 
-export const powerCartesianProduct = function ({ size }) {
-  // eslint-disable-next-line no-unused-expressions
-  ;[...new PowerCartesianProduct(INPUTS[size])]
+export const fastCartesianProduct = {
+  beforeAll,
+  main() {
+    fastCartesianProductLib(matrix)
+  },
 }
 
-export const cartesian = function ({ size }) {
-  cartesianLib(INPUTS[size])
+export const cartesianProduct = {
+  beforeAll,
+  main() {
+    cartesianProductLib(matrix)
+  },
 }
 
-export const lodashProduct = function ({ size }) {
-  lodash.product(...INPUTS[size])
+export const powerCartesianProduct = {
+  beforeAll,
+  main() {
+    // eslint-disable-next-line no-unused-expressions
+    ;[...new PowerCartesianProduct(matrix)]
+  },
+}
+
+export const cartesian = {
+  beforeAll,
+  main() {
+    cartesianLib(matrix)
+  },
+}
+
+export const lodashProduct = {
+  beforeAll,
+  main() {
+    lodash.product(...matrix)
+  },
 }
