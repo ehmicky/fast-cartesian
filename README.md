@@ -85,7 +85,7 @@ Returns a two-dimensional `Array` where each row is a combination of `inputs`.
 
 # Benchmarks
 
-The following [benchmarks](benchmarks/main.js) compare the performance of this
+The following [benchmarks](benchmark/tasks.js) compare the performance of this
 library against alternatives
 ([`big-cartesian`](https://github.com/ehmicky/big-cartesian),
 [`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),

@@ -1,0 +1,24 @@
+inputs:
+  size: 1x65536
+  # TODO: enable inputs variations
+  # size:
+  #   1x65536: 1x65536
+  #   2x256: 2x256
+  #   4x46: 4x46
+  #   8x4: 8x4
+  #   16x2: 16x2
+titles:
+  fastCartesianMain: fast-cartesian
+  bigCartesian: big-cartesian
+  fastCartesianProduct: fast-cartesian-product
+  cartesianProduct: cartesian-product
+  powerCartesianProduct: power-cartesian-product
+  cartesian: cartesian
+  # TODO: add titles of inputs variations
+  # 1x65536: 1 dimension
+  # 2x256: 2 dimensions
+  # 4x46: 4 dimensions
+  # 8x4: 8 dimensions
+  # 16x2: 16 dimensions
+reporter: boxplot
+precision: 3
