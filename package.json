@@ -55,7 +55,7 @@
     "lodash": "^4.17.20",
     "lodash.product": "^18.9.19",
     "power-cartesian-product": "^0.0.6",
-    "pretty-format": "^27.2.0",
+    "pretty-format": "^27.2.4",
     "spyd": "^0.4.0"
   },
   "engines": {
