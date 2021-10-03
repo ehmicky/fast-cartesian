@@ -96,53 +96,53 @@ library against alternatives
 
 ```
 ## fast-cartesian ######################
-1 array                           1.05ms
-2 arrays                          1.13ms
-4 arrays                          1.34ms
-8 arrays                          1.50ms
-16 arrays                         3.75ms
-
-## fast-cartesian-product ##############
-1 array                           1.10ms
-2 arrays                          1.52ms
-4 arrays                          2.39ms
-8 arrays                          4.27ms
-16 arrays                         9.33ms
-
-## big-cartesian #######################
-1 array                           7.61ms
-2 arrays                          7.12ms
-4 arrays                          8.12ms
-8 arrays                          6.72ms
-16 arrays                        15.50ms
-
-## power-cartesian-product #############
-1 array                           5.08ms
-2 arrays                          5.23ms
-4 arrays                          7.37ms
-8 arrays                         11.47ms
-16 arrays                        19.34ms
+1 array                           1.08ms
+2 arrays                          1.15ms
+4 arrays                          2.81ms
+8 arrays                          1.60ms
+16 arrays                         4.28ms
 
 ## cartesian-product ###################
-1 array                           5.57ms
-2 arrays                          2.79ms
-4 arrays                         10.13ms
-8 arrays                         12.96ms
-16 arrays                        18.40ms
+1 array                           3.56ms
+2 arrays                          2.72ms
+4 arrays                         11.21ms
+8 arrays                         13.41ms
+16 arrays                        19.29ms
+
+## big-cartesian #######################
+1 array                           7.73ms
+2 arrays                          7.40ms
+4 arrays                          8.70ms
+8 arrays                          4.46ms
+16 arrays                        17.28ms
+
+## power-cartesian-product #############
+1 array                           6.15ms
+2 arrays                          7.96ms
+4 arrays                         11.84ms
+8 arrays                         17.37ms
+16 arrays                        19.38ms
 
 ## cartesian ###########################
-1 array                           6.42ms
-2 arrays                         15.34ms
-4 arrays                         16.34ms
-8 arrays                         20.71ms
-16 arrays                        30.79ms
+1 array                           6.63ms
+2 arrays                         16.03ms
+4 arrays                         17.82ms
+8 arrays                         22.11ms
+16 arrays                        33.21ms
+
+## fast-cartesian-product ##############
+1 array                          13.75ms
+2 arrays                         17.22ms
+4 arrays                         23.89ms
+8 arrays                         39.08ms
+16 arrays                        61.45ms
 
 ## lodash.product ######################
-1 array                          37.97ms
-2 arrays                         38.38ms
-4 arrays                         41.35ms
-8 arrays                         51.68ms
-16 arrays                        75.40ms
+1 array                          36.66ms
+2 arrays                         37.85ms
+4 arrays                         41.69ms
+8 arrays                         50.38ms
+16 arrays                        73.87ms
 ```
 
 # Support
