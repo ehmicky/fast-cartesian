@@ -21,4 +21,4 @@ titles:
   # 8x4: 8 dimensions
   # 16x2: 16 dimensions
 reporter: boxplot
-precision: 3
+precision: 2
