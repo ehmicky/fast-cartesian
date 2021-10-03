@@ -33,7 +33,6 @@ export const fastCartesianMain = {
 export const bigCartesian = {
   beforeAll,
   main() {
-    // eslint-disable-next-line no-unused-expressions
     ;[...bigCartesianLib(matrix)]
   },
 }
@@ -55,7 +54,6 @@ export const cartesianProduct = {
 export const powerCartesianProduct = {
   beforeAll,
   main() {
-    // eslint-disable-next-line no-unused-expressions
     ;[...new PowerCartesianProduct(matrix)]
   },
 }
