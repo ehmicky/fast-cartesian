@@ -1,3 +1,9 @@
+# 6.1.0
+
+## Features
+
+- Improve TypeScript types.
+
 # 6.0.1
 
 ## Bug fixes
