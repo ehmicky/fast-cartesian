@@ -1,6 +1,6 @@
 {
   "name": "fast-cartesian",
-  "version": "6.0.1",
+  "version": "6.1.0",
   "type": "module",
   "exports": "./build/src/main.js",
   "main": "./build/src/main.js",
