@@ -173,6 +173,7 @@ If you would like to help us fix a bug or add a new feature, please check our
   <tr>
     <td align="center"><a href="https://twitter.com/ehmicky"><img src="https://avatars2.githubusercontent.com/u/8136211?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ehmicky</b></sub></a><br /><a href="https://github.com/ehmicky/fast-cartesian/commits?author=ehmicky" title="Code">💻</a> <a href="#design-ehmicky" title="Design">🎨</a> <a href="#ideas-ehmicky" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/ehmicky/fast-cartesian/commits?author=ehmicky" title="Documentation">📖</a></td>
     <td align="center"><a href="https://marcelgerber.de"><img src="https://avatars0.githubusercontent.com/u/2641501?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marcel Gerber</b></sub></a><br /><a href="https://github.com/ehmicky/fast-cartesian/commits?author=MarcelGerber" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Paulomart"><img src="https://avatars.githubusercontent.com/u/4148404?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Paul Heidenreich</b></sub></a><br /><a href="https://github.com/ehmicky/fast-cartesian/commits?author=Paulomart" title="Code">💻</a></td>
   </tr>
 </table>
 
