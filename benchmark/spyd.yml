@@ -1,12 +1,12 @@
 inputs:
-  size: 1x65536
+  size: [1, 65536]
   # TODO: enable inputs variations
   # size:
-  #   1x65536: 1x65536
-  #   2x256: 2x256
-  #   4x16: 4x16
-  #   8x4: 8x4
-  #   16x2: 16x2
+  #   1d: [1, 65536]
+  #   2d: [2, 256]
+  #   4d: [4, 16]
+  #   8d: [8, 4]
+  #   16d: [16, 2]
 titles:
   fastCartesianMain: fast-cartesian
   bigCartesian: big-cartesian
@@ -15,10 +15,10 @@ titles:
   powerCartesianProduct: power-cartesian-product
   cartesian: cartesian
   # TODO: add titles of inputs variations
-  # 1x65536: 1 dimension
-  # 2x256: 2 dimensions
-  # 4x46: 4 dimensions
-  # 8x4: 8 dimensions
-  # 16x2: 16 dimensions
+  # 1d: 1 dimension
+  # 2d: 2 dimensions
+  # 4d: 4 dimensions
+  # 8d: 8 dimensions
+  # 16d: 16 dimensions
 reporter: boxplot
 precision: 2

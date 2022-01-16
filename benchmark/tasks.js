@@ -11,12 +11,11 @@ import PowerCartesianProduct from 'power-cartesian-product'
 // eslint-disable-next-line fp/no-let, init-declarations
 let matrix
 
-// Retrieve matrix used as argument based on the input, e.g. '5x6'
-const beforeAll = function ({ size }) {
-  const [firstLength, secondLength] = size.split('x')
-  const array = Array.from({ length: Number(secondLength) }, getIndex)
+// Retrieve matrix used as argument based on the input, e.g. [4, 16]
+const beforeAll = function ({ size: [length, secondLength] }) {
+  const array = Array.from({ length: secondLength }, getIndex)
   // eslint-disable-next-line fp/no-mutation
-  matrix = Array.from({ length: Number(firstLength) }, () => array)
+  matrix = Array.from({ length }, () => array)
 }
 
 const getIndex = function (_, index) {
