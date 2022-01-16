@@ -1,3 +1,5 @@
+precision: 2
+reporter: boxplot
 inputs:
   size: [1, 65536]
   # TODO: enable inputs variations
@@ -20,5 +22,3 @@ titles:
   # 4d: 4 dimensions
   # 8d: 8 dimensions
   # 16d: 16 dimensions
-reporter: boxplot
-precision: 2
