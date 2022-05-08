@@ -1,5 +1,5 @@
 precision: 5
-reporter: boxplot
+reporter: debug
 inputs:
   size: [1, 65536]
   # TODO: enable inputs variations
