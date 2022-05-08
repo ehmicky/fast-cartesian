@@ -1,4 +1,4 @@
-precision: 2
+precision: 5
 reporter: boxplot
 inputs:
   size: [1, 65536]
