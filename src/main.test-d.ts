@@ -11,6 +11,7 @@ expectType<[]>(fastCartesian([]))
 expectType<[never][]>(fastCartesian([[]]))
 expectType<[never, string][]>(fastCartesian([[], ['a']]))
 
-expectError(fastCartesian(true, 'a'))
+expectError(fastCartesian(true))
+expectError(fastCartesian([], 'a'))
 expectError(fastCartesian([[true, 'a'], 1]))
 expectError(fastCartesian([true, 'a'], [1, 2]))

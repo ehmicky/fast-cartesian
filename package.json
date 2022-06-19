@@ -7,7 +7,7 @@
   "types": "./build/src/main.d.ts",
   "files": [
     "build/src/**/*.{js,d.ts,map,json,sh,md}",
-    "examples/**/*.{js,ts,map,json,sh,md}"
+    "examples/**/*.{js,d.ts,map,json,sh,md}"
   ],
   "scripts": {
     "test": "gulp test"
@@ -26,10 +26,10 @@
     "data-structures",
     "es6",
     "javascript",
+    "typescript",
     "library",
     "nodejs",
     "lodash",
-    "lodashjs",
     "lodash-fp",
     "cartesian-products",
     "combinatorics",
