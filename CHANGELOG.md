@@ -1,3 +1,9 @@
+# 7.1.0
+
+## Features
+
+- Improve TypeScript types.
+
 # 7.0.0
 
 ## Breaking changes
