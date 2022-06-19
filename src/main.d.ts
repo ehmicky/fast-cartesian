@@ -35,7 +35,7 @@
  * ```
  */
 export default function fastCartesian<InputArrays extends any[][]>(
-  factors: InputArrays,
+  factors: [...InputArrays],
 ): InputArrays extends []
   ? []
   : {
