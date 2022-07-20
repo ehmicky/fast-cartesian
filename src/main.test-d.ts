@@ -1,5 +1,6 @@
-import fastCartesian from 'fast-cartesian'
 import { expectType, expectError } from 'tsd'
+
+import fastCartesian from './main.js'
 
 expectType<[string | boolean, number][]>(
   fastCartesian([
