@@ -1,3 +1,9 @@
+# 7.3.0
+
+## Features
+
+- Add browser support
+
 # 7.2.0
 
 ## Features
