@@ -51,7 +51,7 @@
     "test": "test"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^1.0.104",
+    "@ehmicky/dev-tasks": "^1.0.105",
     "big-cartesian": "^4.4.0",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
