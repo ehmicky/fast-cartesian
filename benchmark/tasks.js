@@ -1,12 +1,13 @@
 import bigCartesianLib from 'big-cartesian'
 import cartesianLib from 'cartesian'
 import cartesianProductLib from 'cartesian-product'
-import fastCartesianLib from 'fast-cartesian'
 import fastCartesianProductLib from 'fast-cartesian-product'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
 import 'lodash.product'
 import PowerCartesianProduct from 'power-cartesian-product'
+
+import fastCartesianLib from 'fast-cartesian'
 
 // eslint-disable-next-line fp/no-let, init-declarations
 let matrix

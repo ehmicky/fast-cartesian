@@ -1,6 +1,7 @@
 import test from 'ava'
-import fastCartesian from 'fast-cartesian'
 import { each } from 'test-each'
+
+import fastCartesian from 'fast-cartesian'
 
 each(
   [
