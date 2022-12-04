@@ -7,27 +7,51 @@ const getTitle = function (args) {
 }
 
 const ARGS = [
-  [],
-  [[]],
-  [[], []],
-  [[0]],
-  [[0], [1]],
-  [[0, 1]],
-  [[0, 1], [2]],
-  [
-    [0, 1],
-    [2, 3],
-  ],
-  [
-    [0, 1, 2],
-    [3, 2],
-  ],
-  [[[0]]],
-  [[0, undefined, 1]],
+  { input: [], output: [] },
+  { input: [[]], output: [] },
+  { input: [[], []], output: [] },
+  { input: [[0]], output: [[0]] },
+  { input: [[0], [1]], output: [[0, 1]] },
+  { input: [[0, 1]], output: [[0], [1]] },
+  {
+    input: [[0, 1], [2]],
+    output: [
+      [0, 2],
+      [1, 2],
+    ],
+  },
+  {
+    input: [
+      [0, 1],
+      [2, 3],
+    ],
+    output: [
+      [0, 2],
+      [0, 3],
+      [1, 2],
+      [1, 3],
+    ],
+  },
+  {
+    input: [
+      [0, 1, 2],
+      [3, 2],
+    ],
+    output: [
+      [0, 3],
+      [0, 2],
+      [1, 3],
+      [1, 2],
+      [2, 3],
+      [2, 2],
+    ],
+  },
+  { input: [[[0]]], output: [[[0]]] },
+  { input: [[0, undefined, 1]], output: [[0], [undefined], [1]] },
 ]
-ARGS.forEach((args) => {
-  test(`success | ${getTitle(args)}`, (t) => {
-    t.snapshot(fastCartesian(args))
+ARGS.forEach(({ input, output }) => {
+  test(`success | ${getTitle(input)}`, (t) => {
+    t.deepEqual(fastCartesian(input), output)
   })
 })
 
