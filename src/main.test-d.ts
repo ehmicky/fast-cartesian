@@ -1,4 +1,4 @@
-import { expectType, expectError } from 'tsd'
+import { expectType } from 'tsd'
 
 import fastCartesian from 'fast-cartesian'
 
@@ -12,7 +12,11 @@ expectType<[]>(fastCartesian([]))
 expectType<[never][]>(fastCartesian([[]]))
 expectType<[never, string][]>(fastCartesian([[], ['a']]))
 
-expectError(fastCartesian(true))
-expectError(fastCartesian([], 'a'))
-expectError(fastCartesian([[true, 'a'], 1]))
-expectError(fastCartesian([true, 'a'], [1, 2]))
+// @ts-expect-error
+fastCartesian(true)
+// @ts-expect-error
+fastCartesian([], 'a')
+// @ts-expect-error
+fastCartesian([[true, 'a'], 1])
+// @ts-expect-error
+fastCartesian([true, 'a'], [1, 2])
