@@ -34,14 +34,12 @@
  * // ]
  * ```
  */
-export default function fastCartesian<InputArrays extends any[][]>(
+export default function fastCartesian<InputArrays extends unknown[][]>(
   factors: [...InputArrays],
 ): InputArrays extends []
   ? []
   : {
-      [index in keyof InputArrays]: InputArrays[index] extends Array<
-        infer InputElement
-      >
+      [index in keyof InputArrays]: InputArrays[index] extends (infer InputElement)[]
         ? InputElement
         : never
     }[]
