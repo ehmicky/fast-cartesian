@@ -16,7 +16,7 @@ each(
   ],
   ({ title }, input) => {
     test(`should throw | ${title}`, (t) => {
-      t.throws(fastCartesian.bind(undefined, input))
+      t.throws(fastCartesian.bind(undefined, input as never))
     })
   },
 )
@@ -35,7 +35,7 @@ each(
   },
 )
 
-const getBigArray = (length, size) =>
+const getBigArray = (length: number, size: number) =>
   Array.from({ length }, () => Array.from({ length: size }, getTrue))
 
 const getTrue = () => true

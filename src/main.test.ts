@@ -49,7 +49,7 @@ each(
   ],
   ({ title }, { input, output }) => {
     test(`success | ${title}`, (t) => {
-      t.deepEqual(fastCartesian(input), output)
+      t.deepEqual(fastCartesian(input as unknown[][]), output)
     })
   },
 )
