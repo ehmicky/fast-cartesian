@@ -2,21 +2,21 @@ import { expectType } from 'tsd'
 
 import fastCartesian from 'fast-cartesian'
 
-expectType<[string | boolean, number][]>(
-  fastCartesian([
-    [true, 'a'],
-    [1, 2],
-  ]),
-)
-expectType<[]>(fastCartesian([]))
-expectType<[never][]>(fastCartesian([[]]))
-expectType<[never, string][]>(fastCartesian([[], ['a']]))
+const emptyArray = [] as const
+const firstArray = [0, 1] as const
+const secondArray = [2, 3] as const
+const notArray = 0 as const
+
+expectType<[0 | 1, 2 | 3][]>(fastCartesian([firstArray, secondArray] as const))
+expectType<[]>(fastCartesian(emptyArray))
+expectType<[never][]>(fastCartesian([emptyArray] as const))
+expectType<[0 | 1, never][]>(fastCartesian([firstArray, emptyArray] as const))
 
 // @ts-expect-error
-fastCartesian(true)
+fastCartesian(notArray)
 // @ts-expect-error
-fastCartesian([], 'a')
+fastCartesian(firstArray, notArray)
 // @ts-expect-error
-fastCartesian([[true, 'a'], 1])
+fastCartesian([firstArray, notArray])
 // @ts-expect-error
-fastCartesian([true, 'a'], [1, 2])
+fastCartesian(firstArray, secondArray)
