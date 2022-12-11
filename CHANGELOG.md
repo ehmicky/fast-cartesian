@@ -1,3 +1,9 @@
+# 7.6.0
+
+## Features
+
+- Migrate to TypeScript
+
 # 7.5.0
 
 ## Features
