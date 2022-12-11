@@ -61,7 +61,7 @@
     "lodash.product": "^18.9.19",
     "power-cartesian-product": "^0.0.6",
     "spyd": "^0.6.1",
-    "test-each": "^5.7.0"
+    "test-each": "^5.7.1"
   },
   "engines": {
     "node": ">=14.18.0"
