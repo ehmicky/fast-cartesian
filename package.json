@@ -1,6 +1,6 @@
 {
   "name": "fast-cartesian",
-  "version": "7.5.0",
+  "version": "7.6.0",
   "type": "module",
   "exports": {
     "types": "./build/src/main.d.ts",
