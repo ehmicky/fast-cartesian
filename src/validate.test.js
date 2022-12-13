@@ -10,21 +10,9 @@ each(
     [null],
     [[], true],
     [() => true],
-    [
-      function getObject() {
-        return {}
-      },
-    ],
-    [
-      function getNull() {
-        return null
-      },
-    ],
-    [
-      function getInvalidIterator() {
-        return { next: true }
-      },
-    ],
+    [() => ({})],
+    [() => null],
+    [() => ({ next: true })],
   ],
   ({ title }, input) => {
     test(`should throw | ${title}`, (t) => {
@@ -47,10 +35,7 @@ each(
   },
 )
 
-const getBigArray = function (length, size) {
-  return Array.from({ length }, () => Array.from({ length: size }, getTrue))
-}
+const getBigArray = (length, size) =>
+  Array.from({ length }, () => Array.from({ length: size }, getTrue))
 
-const getTrue = function () {
-  return true
-}
+const getTrue = () => true

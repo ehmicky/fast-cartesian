@@ -3,7 +3,7 @@ import { validateInput } from './validate.js'
 // Does a cartesian product on several arrays.
 // Returns an array with the results.
 // Optimized to be the fastest implementation in JavaScript.
-export default function fastCartesian(arrays) {
+const fastCartesian = (arrays) => {
   validateInput(arrays)
 
   if (arrays.length === 0) {
@@ -16,7 +16,9 @@ export default function fastCartesian(arrays) {
   return result
 }
 
-const getLoopFunc = function (length) {
+export default fastCartesian
+
+const getLoopFunc = (length) => {
   const cachedLoopFunc = cache[length]
 
   if (cachedLoopFunc !== undefined) {
@@ -32,7 +34,7 @@ const getLoopFunc = function (length) {
 const cache = {}
 
 // Create a function with `new Function()` that does:
-//   function(arrays, results) {
+//   (arrays, results) => {
 //     for (const value0 of arrays[0]) {
 //       for (const value1 of arrays[1]) {
 //         // and so on
@@ -40,7 +42,7 @@ const cache = {}
 //       }
 //     }
 //   }
-const mGetLoopFunc = function (length) {
+const mGetLoopFunc = (length) => {
   const indexes = Array.from({ length }, getIndex)
   const start = indexes
     .map((index) => `for (const value${index} of arrays[${index}]) {`)
@@ -56,6 +58,4 @@ const mGetLoopFunc = function (length) {
   )
 }
 
-const getIndex = function (value, index) {
-  return String(index)
-}
+const getIndex = (value, index) => String(index)

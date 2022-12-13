@@ -13,61 +13,59 @@ import fastCartesianLib from 'fast-cartesian'
 let matrix
 
 // Retrieve matrix used as argument based on the input, e.g. [4, 16]
-const beforeAll = function ({ size: [length, secondLength] }) {
+const beforeAll = ({ size: [length, secondLength] }) => {
   const array = Array.from({ length: secondLength }, getIndex)
   // eslint-disable-next-line fp/no-mutation
   matrix = Array.from({ length }, () => array)
 }
 
-const getIndex = function (_, index) {
-  return index
-}
+const getIndex = (_, index) => index
 
 export const fastCartesianMain = {
   beforeAll,
-  main() {
+  main: () => {
     fastCartesianLib(matrix)
   },
 }
 
 export const bigCartesian = {
   beforeAll,
-  main() {
+  main: () => {
     ;[...bigCartesianLib(matrix)]
   },
 }
 
 export const fastCartesianProduct = {
   beforeAll,
-  main() {
+  main: () => {
     fastCartesianProductLib(matrix)
   },
 }
 
 export const cartesianProduct = {
   beforeAll,
-  main() {
+  main: () => {
     cartesianProductLib(matrix)
   },
 }
 
 export const powerCartesianProduct = {
   beforeAll,
-  main() {
+  main: () => {
     ;[...new PowerCartesianProduct(matrix)]
   },
 }
 
 export const cartesian = {
   beforeAll,
-  main() {
+  main: () => {
     cartesianLib(matrix)
   },
 }
 
 export const lodashProduct = {
   beforeAll,
-  main() {
+  main: () => {
     lodash.product(...matrix)
   },
 }
