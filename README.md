@@ -105,6 +105,7 @@ Returns a two-dimensional `Array` where each row is a combination of `inputs`.
 The following [benchmarks](benchmark/tasks.js) compare the performance of this
 library against alternatives
 ([`big-cartesian`](https://github.com/ehmicky/big-cartesian),
+[`cx-product`](https://github.com/anywhichway/cxproduct),
 [`cartesian-product`](https://github.com/izaakschroeder/cartesian-product),
 [`fast-cartesian-product`](https://github.com/fisker/fast-cartesian-product),
 [`power-cartesian-product`](https://github.com/fisker/power-cartesian-product),
@@ -113,53 +114,60 @@ library against alternatives
 
 ```
 ## fast-cartesian ######################
-1 array                           1.08ms
-2 arrays                          1.15ms
-4 arrays                          2.81ms
-8 arrays                          1.60ms
-16 arrays                         4.28ms
+1 array                           1.22ms
+2 arrays                          1.82ms
+4 arrays                          3.12ms
+8 arrays                          1.87ms
+16 arrays                         4.82ms
+
+## cxproduct ###########################
+1 array                           1.91ms
+2 arrays                          3.47ms
+4 arrays                          3.62ms
+8 arrays                          2.39ms
+16 arrays                         5.05ms
 
 ## cartesian-product ###################
-1 array                           3.56ms
-2 arrays                          2.72ms
-4 arrays                         11.21ms
-8 arrays                         13.41ms
-16 arrays                        19.29ms
+1 array                           4.61ms
+2 arrays                          2.92ms
+4 arrays                         11.80ms
+8 arrays                         14.78ms
+16 arrays                        21.00ms
 
 ## big-cartesian #######################
-1 array                           7.73ms
-2 arrays                          7.40ms
-4 arrays                          8.70ms
-8 arrays                          4.46ms
-16 arrays                        17.28ms
+1 array                           7.21ms
+2 arrays                          6.68ms
+4 arrays                          8.53ms
+8 arrays                          7.80ms
+16 arrays                        18.30ms
 
 ## power-cartesian-product #############
-1 array                           6.15ms
-2 arrays                          7.96ms
-4 arrays                         11.84ms
-8 arrays                         17.37ms
-16 arrays                        19.38ms
+1 array                           6.84ms
+2 arrays                          8.54ms
+4 arrays                         12.35ms
+8 arrays                         11.78ms
+16 arrays                        18.98ms
 
 ## cartesian ###########################
-1 array                           6.63ms
-2 arrays                         16.03ms
-4 arrays                         17.82ms
-8 arrays                         22.11ms
-16 arrays                        33.21ms
+1 array                           3.44ms
+2 arrays                         11.12ms
+4 arrays                         13.27ms
+8 arrays                         16.11ms
+16 arrays                        22.90ms
 
 ## fast-cartesian-product ##############
-1 array                          13.75ms
-2 arrays                         17.22ms
-4 arrays                         23.89ms
-8 arrays                         39.08ms
-16 arrays                        61.45ms
+1 array                          23.04ms
+2 arrays                         24.11ms
+4 arrays                         30.46ms
+8 arrays                         45.65ms
+16 arrays                        65.12ms
 
 ## lodash.product ######################
-1 array                          36.66ms
-2 arrays                         37.85ms
-4 arrays                         41.69ms
-8 arrays                         50.38ms
-16 arrays                        73.87ms
+1 array                          36.51ms
+2 arrays                         37.89ms
+4 arrays                         41.71ms
+8 arrays                         52.72ms
+16 arrays                        80.84ms
 ```
 
 # Support
