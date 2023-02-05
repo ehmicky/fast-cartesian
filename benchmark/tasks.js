@@ -1,6 +1,7 @@
 import bigCartesianLib from 'big-cartesian'
 import cartesianLib from 'cartesian'
 import cartesianProductLib from 'cartesian-product'
+import { CXProduct } from 'cxproduct'
 import fastCartesianProductLib from 'fast-cartesian-product'
 import lodash from 'lodash'
 // eslint-disable-next-line import/no-unassigned-import
@@ -67,5 +68,16 @@ export const lodashProduct = {
   beforeAll,
   main: () => {
     lodash.product(...matrix)
+  },
+}
+
+export const cxProduct = {
+  beforeAll,
+  main: () => {
+    const array = []
+    new CXProduct(matrix).forEach((value) => {
+      // eslint-disable-next-line fp/no-mutating-methods
+      array.push(value)
+    })
   },
 }

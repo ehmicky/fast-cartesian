@@ -16,6 +16,7 @@ titles:
   cartesianProduct: cartesian-product
   powerCartesianProduct: power-cartesian-product
   cartesian: cartesian
+  cxProduct: cxproduct
   # TODO: add titles of inputs variations
   # 1d: 1 dimension
   # 2d: 2 dimensions

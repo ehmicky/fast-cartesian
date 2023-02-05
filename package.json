@@ -55,6 +55,7 @@
     "big-cartesian": "^4.7.0",
     "cartesian": "^1.0.1",
     "cartesian-product": "^2.1.2",
+    "cxproduct": "^2.0.2",
     "fast-cartesian-product": "^2.0.1",
     "lodash": "^4.17.20",
     "lodash.product": "^18.9.19",
