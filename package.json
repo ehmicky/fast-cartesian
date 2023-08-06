@@ -42,7 +42,10 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://www.github.com/ehmicky/fast-cartesian",
-  "repository": "ehmicky/fast-cartesian",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehmicky/fast-cartesian.git"
+  },
   "bugs": {
     "url": "https://github.com/ehmicky/fast-cartesian/issues"
   },
