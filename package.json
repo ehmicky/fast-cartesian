@@ -63,7 +63,7 @@
     "lodash": "^4.17.20",
     "lodash.product": "^18.10.0",
     "power-cartesian-product": "^0.0.6",
-    "spyd": "^0.8.1",
+    "spyd": "^0.8.2",
     "test-each": "^7.0.0"
   },
   "engines": {
