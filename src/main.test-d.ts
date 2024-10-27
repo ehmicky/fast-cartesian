@@ -5,7 +5,7 @@ import fastCartesian from 'fast-cartesian'
 const emptyArray = [] as const
 const firstArray = [0, 1] as const
 const secondArray = [2, 3] as const
-const notArray = 0 as const
+const notArray = 0
 
 expectType<[0 | 1, 2 | 3][]>(fastCartesian([firstArray, secondArray] as const))
 expectType<[]>(fastCartesian(emptyArray))
