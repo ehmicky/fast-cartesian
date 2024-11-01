@@ -76,6 +76,7 @@ export const cxProduct = {
   main: () => {
     const array = []
     new CXProduct(matrix).forEach((value) => {
+      // eslint-disable-next-line fp/no-mutating-methods
       array.push(value)
     })
   },
